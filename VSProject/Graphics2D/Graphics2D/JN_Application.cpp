@@ -32,7 +32,8 @@ JN_Application::~JN_Application()
 // Init the relevant sub-systems and create the initial widgets
 bool JN_Application::Init()
 {
-	return InitSDL();
+	// SDL MUST be init first
+	return InitSDL() && InitGL();
 }
 
 
@@ -61,17 +62,28 @@ bool JN_Application::InitSDL()
 // Init OpenGL systems
 bool JN_Application::InitGL()
 {
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, GL_MAJOR);
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, GL_MINOR);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_PROFILE_CORE);
 	//SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
-	//SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+
+	context = SDL_GL_CreateContext(window);
+
+	SDL_GL_SetSwapInterval(1);	// This stops the render delay
 
 	glewExperimental = GL_TRUE;
 
 	return glewInit() == GLEW_OK;
+}
 
+
+// Clears the context
+void JN_Application::ClearContext()
+{
+	glClearColor(0.0f, 0.0f, 0.0f, 1);
+	glClear(GL_COLOR_BUFFER_BIT);
 }
 
 

@@ -36,6 +36,7 @@ void JN_Game::Run()
 		auto frameLock = JN_FrameLock(FRAMES_PER_SECOND, currentFps);
 
 		Input();
+		Render();
 	}
 }
 
@@ -57,4 +58,14 @@ void JN_Game::Input()
 			break;
 		}
 	}
+}
+
+
+// Render objects to buffer
+void JN_Game::Render()
+{
+	app->ClearContext();
+
+
+	SDL_GL_SwapWindow(app->GetWindow());	// Flip the buffer()
 }

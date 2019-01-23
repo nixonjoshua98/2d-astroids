@@ -19,6 +19,8 @@ public:
 	const int GL_MAJOR = 4;
 	const int GL_MINOR = 3;
 
+	void ClearContext();
+
 
 	/* - - - -  GETS - - - - */
 	SDL_Window* GetWindow();		// Returns <window>

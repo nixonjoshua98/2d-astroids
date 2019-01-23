@@ -24,6 +24,7 @@ private:
 	std::shared_ptr<JN_Application> app = NULL;	// Application, stores the window, renderer etc.
 
 	void Input();	// Input check
+	void Render();	// Render objects and flip buffer
 };
 
 #endif // !JN_GAME_H
