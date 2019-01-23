@@ -18,7 +18,10 @@ JN_FrameLock::~JN_FrameLock()
 	// Casting to remove warnings
 	WaitForMs(std::fmax(deltaTime - dur, 0));
 
-	rFps = 1000 / GetTimeSpan();
+	int span = GetTimeSpan();
+
+	if (span > 0)
+		rFps = 1000 / GetTimeSpan();
 }
 
 int JN_FrameLock::GetTimeSpan()

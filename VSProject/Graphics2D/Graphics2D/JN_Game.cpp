@@ -1,4 +1,5 @@
 
+#include <iostream>
 
 #include "JN_Game.h"
 #include "JN_Logging.h"
@@ -37,6 +38,8 @@ void JN_Game::Run()
 
 		Input();
 		Render();
+
+		std::cout << "FPS: " << currentFps << std::endl;
 	}
 }
 
