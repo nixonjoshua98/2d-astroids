@@ -1,0 +1,25 @@
+﻿JN_Application.obj : error LNK2019: unresolved external symbol __imp_glewInit referenced in function "private: bool __cdecl JN_Application::InitGL(void)" (?InitGL@JN_Application@@AEAA_NXZ)
+Source.obj : error LNK2001: unresolved external symbol __imp_glewInit
+JN_Application.obj : error LNK2019: unresolved external symbol SDL_CreateWindow referenced in function "private: bool __cdecl JN_Application::InitSDL(void)" (?InitSDL@JN_Application@@AEAA_NXZ)
+Source.obj : error LNK2001: unresolved external symbol SDL_CreateWindow
+JN_Application.obj : error LNK2019: unresolved external symbol SDL_SetWindowMinimumSize referenced in function "private: bool __cdecl JN_Application::InitSDL(void)" (?InitSDL@JN_Application@@AEAA_NXZ)
+JN_Application.obj : error LNK2019: unresolved external symbol SDL_DestroyWindow referenced in function "public: __cdecl JN_Application::~JN_Application(void)" (??1JN_Application@@QEAA@XZ)
+JN_Application.obj : error LNK2019: unresolved external symbol SDL_GL_SetAttribute referenced in function "private: bool __cdecl JN_Application::InitGL(void)" (?InitGL@JN_Application@@AEAA_NXZ)
+Source.obj : error LNK2001: unresolved external symbol SDL_GL_SetAttribute
+JN_Application.obj : error LNK2019: unresolved external symbol SDL_GL_DeleteContext referenced in function "public: __cdecl JN_Application::~JN_Application(void)" (??1JN_Application@@QEAA@XZ)
+Source.obj : error LNK2001: unresolved external symbol SDL_GL_DeleteContext
+JN_Application.obj : error LNK2019: unresolved external symbol SDL_Init referenced in function "private: bool __cdecl JN_Application::InitSDL(void)" (?InitSDL@JN_Application@@AEAA_NXZ)
+Source.obj : error LNK2001: unresolved external symbol SDL_Init
+JN_Application.obj : error LNK2019: unresolved external symbol SDL_Quit referenced in function "public: __cdecl JN_Application::~JN_Application(void)" (??1JN_Application@@QEAA@XZ)
+Source.obj : error LNK2001: unresolved external symbol SDL_Quit
+JN_Application.obj : error LNK2001: unresolved external symbol __imp_glewExperimental
+Source.obj : error LNK2001: unresolved external symbol __imp_glewExperimental
+JN_FrameLock.obj : error LNK2019: unresolved external symbol SDL_Delay referenced in function "private: void __cdecl JN_FrameLock::WaitForMs(int)" (?WaitForMs@JN_FrameLock@@AEAAXH@Z)
+JN_Game.obj : error LNK2019: unresolved external symbol SDL_PollEvent referenced in function "private: void __cdecl JN_Game::Input(void)" (?Input@JN_Game@@AEAAXXZ)
+Source.obj : error LNK2001: unresolved external symbol SDL_PollEvent
+Source.obj : error LNK2019: unresolved external symbol SDL_GL_CreateContext referenced in function "int __cdecl MAIN(int,char * * const)" (?MAIN@@YAHHQEAPEAD@Z)
+Source.obj : error LNK2019: unresolved external symbol SDL_GL_SwapWindow referenced in function "int __cdecl MAIN(int,char * * const)" (?MAIN@@YAHHQEAPEAD@Z)
+C:\Users\Joshua\OneDrive - University of Lincoln\Repos\OpenGL-2D-Game\VSProject\Graphics2D\..\External Libraries\SDL2-2.0.9\lib\x86\sdl2.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Users\Joshua\OneDrive - University of Lincoln\Repos\OpenGL-2D-Game\VSProject\Graphics2D\..\External Libraries\SDL2-2.0.9\lib\x86\sdl2main.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Users\Joshua\OneDrive - University of Lincoln\Repos\OpenGL-2D-Game\VSProject\Graphics2D\..\External Libraries\glew-2.1.0\lib\release\win32\glew32.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Users\Joshua\OneDrive - University of Lincoln\Repos\OpenGL-2D-Game\VSProject\Graphics2D\x64\Debug\Graphics2D.exe : fatal error LNK1120: 13 unresolved externals
