@@ -1,10 +1,9 @@
-﻿  Source.cpp
-  JN_Main.cpp
+﻿  JN_Main.cpp
   JN_Logging.cpp
   JN_Game.cpp
   JN_FrameLock.cpp
-c:\users\joshua\onedrive - university of lincoln\games computing\year two\graphics programming (opengl)\assignments\assignment one\vsproject\graphics2d\graphics2d\jn_framelock.cpp(19): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\joshua\onedrive - university of lincoln\repos\opengl-2d-game\vsproject\graphics2d\graphics2d\jn_framelock.cpp(19): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
   JN_Application.cpp
   Generating Code...
-  Graphics2D.vcxproj -> C:\Users\Joshua\OneDrive - University of Lincoln\Games Computing\Year Two\Graphics Programming (OpenGL)\Assignments\Assignment One\VSProject\Graphics2D\Debug\Graphics2D.exe
-  Graphics2D.vcxproj -> C:\Users\Joshua\OneDrive - University of Lincoln\Games Computing\Year Two\Graphics Programming (OpenGL)\Assignments\Assignment One\VSProject\Graphics2D\Debug\Graphics2D.pdb (Partial PDB)
+  Graphics2D.vcxproj -> C:\Users\Joshua\OneDrive - University of Lincoln\Repos\OpenGL-2D-Game\VSProject\Graphics2D\Debug\Graphics2D.exe
+  Graphics2D.vcxproj -> C:\Users\Joshua\OneDrive - University of Lincoln\Repos\OpenGL-2D-Game\VSProject\Graphics2D\Debug\Graphics2D.pdb (Partial PDB)

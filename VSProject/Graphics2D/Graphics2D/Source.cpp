@@ -23,7 +23,7 @@
 
 
 
-int MAIN(int argc, char *argv[]) {
+int main(int argc, char *argv[]) {
 	//SDL Initialise
 	SDL_Init(SDL_INIT_EVERYTHING);
 

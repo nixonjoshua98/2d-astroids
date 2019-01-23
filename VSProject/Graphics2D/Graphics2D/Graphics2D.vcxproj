@@ -18,6 +18,19 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="JN_Application.cpp" />
+    <ClCompile Include="JN_FrameLock.cpp" />
+    <ClCompile Include="JN_Game.cpp" />
+    <ClCompile Include="JN_Logging.cpp" />
+    <ClCompile Include="JN_Main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="JN_Application.h" />
+    <ClInclude Include="JN_FrameLock.h" />
+    <ClInclude Include="JN_Game.h" />
+    <ClInclude Include="JN_Logging.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{FC49E162-563D-4E4A-B6F1-5EB920162ED6}</ProjectGuid>
@@ -100,8 +113,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -148,20 +160,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="JN_Application.cpp" />
-    <ClCompile Include="JN_FrameLock.cpp" />
-    <ClCompile Include="JN_Game.cpp" />
-    <ClCompile Include="JN_Logging.cpp" />
-    <ClCompile Include="JN_Main.cpp" />
-    <ClCompile Include="Source.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="JN_Application.h" />
-    <ClInclude Include="JN_FrameLock.h" />
-    <ClInclude Include="JN_Game.h" />
-    <ClInclude Include="JN_Logging.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
