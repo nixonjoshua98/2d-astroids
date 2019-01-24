@@ -45,7 +45,7 @@ bool JN_Application::InitSDL()
 	if (isSDL)
 	{
 		window = SDL_CreateWindow(
-			WINDOW_TITLE, // Window title
+			WINDOW_TITLE,										// Window title
 			SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,	// Initial position of the window (x, y)
 			STARTING_WIDTH, STARTING_HEIGHT,					// Width & height of the window
 			SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE			// Window flags
@@ -65,7 +65,7 @@ bool JN_Application::InitGL()
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_PROFILE_CORE);
-	//SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
@@ -80,9 +80,9 @@ bool JN_Application::InitGL()
 
 
 // Clears the context
-void JN_Application::ClearContext()
+void JN_Application::ClearContext(float r, float g, float b)
 {
-	glClearColor(0.0f, 0.0f, 0.0f, 1);
+	glClearColor(r, g, b, 1);
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 

@@ -67,8 +67,9 @@ void JN_Game::Input()
 // Render objects to buffer
 void JN_Game::Render()
 {
-	app->ClearContext();
+	app->ClearContext(0, 0, 0);
 
+	// Render stuff here...
 
 	SDL_GL_SwapWindow(app->GetWindow());	// Flip the buffer()
 }
