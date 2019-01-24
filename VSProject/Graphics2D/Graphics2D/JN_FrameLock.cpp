@@ -16,7 +16,7 @@ JN_FrameLock::~JN_FrameLock()
 	int dur = GetTimeSpan();
 
 	// Casting to remove warnings
-	WaitForMs(std::fmax(deltaTime - dur, 0));
+	WaitForMs((int)std::fmax(deltaTime - dur, 0));
 
 	int span = GetTimeSpan();
 
