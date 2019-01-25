@@ -5,6 +5,8 @@
 
 #include <memory>
 
+#include "JN_Triangle.h"
+
 class JN_Game
 {
 public:
@@ -22,6 +24,8 @@ private:
 	bool gameRunning = true;	// Bool flag to run the game loop
 
 	std::shared_ptr<JN_Application> app = NULL;	// Application, stores the window, renderer etc.
+
+	JN_Triangle tri;
 
 	void Input();	// Input check
 	void Render();	// Render objects and flip buffer

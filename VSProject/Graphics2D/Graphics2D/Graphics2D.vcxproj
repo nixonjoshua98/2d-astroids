@@ -24,12 +24,14 @@
     <ClCompile Include="JN_Game.cpp" />
     <ClCompile Include="JN_Logging.cpp" />
     <ClCompile Include="JN_Main.cpp" />
+    <ClCompile Include="JN_Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="JN_Application.h" />
     <ClInclude Include="JN_FrameLock.h" />
     <ClInclude Include="JN_Game.h" />
     <ClInclude Include="JN_Logging.h" />
+    <ClInclude Include="JN_Triangle.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

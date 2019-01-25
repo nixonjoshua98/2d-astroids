@@ -32,6 +32,10 @@ JN_Game::~JN_Game()
 // Game loop
 void JN_Game::Run()
 {
+	tri = JN_Triangle();
+	tri.Init();
+	
+
 	while (gameRunning)
 	{
 		auto frameLock = JN_FrameLock(FRAMES_PER_SECOND, currentFps);
@@ -69,7 +73,7 @@ void JN_Game::Render()
 {
 	app->ClearContext(0, 0, 0);
 
-	// Render stuff here...
+	tri.Render();
 
 	SDL_GL_SwapWindow(app->GetWindow());	// Flip the buffer()
 }
