@@ -10,7 +10,6 @@ bool JN_Game::Init(std::shared_ptr<JN_Application> app)
 {
 	this->app = app;
 
-
 	return true;
 }
 
@@ -71,7 +70,7 @@ void JN_Game::Input()
 // Render objects to buffer
 void JN_Game::Render()
 {
-	app->ClearContext(0, 0, 0);
+	app->ClearContext(1.0f, 1.0f, 1.0f);
 
 	tri.Render();
 

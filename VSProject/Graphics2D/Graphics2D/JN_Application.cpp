@@ -75,7 +75,13 @@ bool JN_Application::InitGL()
 
 	glewExperimental = GL_TRUE;
 
-	return glewInit() == GLEW_OK;
+	if (glewInit() != GLEW_OK)
+		return false;
+
+	// ... Load shaders
+	
+
+	return true;
 }
 
 

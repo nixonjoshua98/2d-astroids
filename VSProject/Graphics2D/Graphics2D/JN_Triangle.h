@@ -14,7 +14,7 @@ public:
 	void Render();
 
 private:
-	GLuint VertexArrayID;
+	GLuint vertexArray;
 	GLuint vertexBuffer;
 
 	GLfloat vertices[9] = {
@@ -22,6 +22,8 @@ private:
 		 0.0f,  1.0f, 0.0f,
 		 1.0f, -1.0f, 0.0f,
 	};
+
+	void SetBuffers();
 
 };
 
