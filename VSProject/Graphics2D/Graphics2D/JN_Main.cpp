@@ -7,17 +7,6 @@
 #include <SDL.h>
 #include <memory>
 
-/*
-// // - OpenGL Mathematics - https://glm.g-truc.net/
-#define GLM_FORCE_RADIANS // force glm to use radians
-// // NOTE: must do before including GLM headers
-// // NOTE: GLSL uses radians, so will do the same, for consistency
-#include <glm/glm.hpp>
-#include "windows.h"
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
-*/
-
 int main(int argc, char *argv[])
 {
 	JN_ClearLog();
@@ -38,7 +27,6 @@ int main(int argc, char *argv[])
 		}
 
 	}
-
 
 	return 0;
 }

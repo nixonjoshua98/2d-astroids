@@ -5,15 +5,6 @@
 #include "JN_Logging.h"
 #include "JN_FrameLock.h"
 
-
-bool JN_Game::Init(std::shared_ptr<JN_Application> app)
-{
-	this->app = app;
-
-	return true;
-}
-
-
 // Constructor
 JN_Game::JN_Game()
 {
@@ -25,6 +16,24 @@ JN_Game::JN_Game()
 JN_Game::~JN_Game()
 {
 	JN_AppendLog("Game destroyed");
+}
+
+
+bool JN_Game::Init(std::shared_ptr<JN_Application> app)
+{
+	this->app = app;
+
+	defaultShaderProgram = glCreateProgram();
+
+	Shader frag = Shader(Shader::ShaderType::Fragment, "Shader.frag");
+	Shader vert = Shader(Shader::ShaderType::Vertex, "Shader.vert");
+
+	glAttachShader(defaultShaderProgram, frag.GetShaderID());
+	glAttachShader(defaultShaderProgram, vert.GetShaderID());
+
+	glLinkProgram(defaultShaderProgram);
+
+	return true;
 }
 
 
@@ -70,7 +79,9 @@ void JN_Game::Input()
 // Render objects to buffer
 void JN_Game::Render()
 {
-	app->ClearContext(1.0f, 1.0f, 1.0f);
+	app->ClearContext(0.0f, 0.0f, 0.0f);
+
+	glUseProgram(defaultShaderProgram);
 
 	tri.Render();
 

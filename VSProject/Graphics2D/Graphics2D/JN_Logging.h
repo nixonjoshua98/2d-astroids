@@ -5,8 +5,7 @@
 #include <chrono>
 
 /*
- * Stores constants related to logging,
- * definations are in .cpp file
+ * Stores constants related to logging, defs in .cpp file
  */
 namespace LogConstants
 {

@@ -2,10 +2,10 @@
 #define JN_GAME_H
 
 #include "JN_Application.h"
+#include "JN_Triangle.h"
+#include "JN_Shader.h"
 
 #include <memory>
-
-#include "JN_Triangle.h"
 
 class JN_Game
 {
@@ -20,8 +20,9 @@ public:
 	const int FRAMES_PER_SECOND = 60;
 
 private:
-	int currentFps;				// Stores the current FPS, got from the framelock
-	bool gameRunning = true;	// Bool flag to run the game loop
+	int currentFps = 0;				// Stores the current FPS, got from the framelock
+	bool gameRunning = true;		// Bool flag to run the game loop
+	GLuint defaultShaderProgram;	// ...
 
 	std::shared_ptr<JN_Application> app = NULL;	// Application, stores the window, renderer etc.
 
