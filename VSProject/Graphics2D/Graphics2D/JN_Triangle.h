@@ -13,14 +13,15 @@ public:
 
 	void Render();
 
+
 private:
 	GLuint vertexArray;
 	GLuint vertexBuffer;
 
 	GLfloat vertices[9] = {
-		-1.0f, -1.0f, 0.0f, 
-		 0.0f,  1.0f, 0.0f,
-		 1.0f, -1.0f, 0.0f,
+		-0.05f,  -0.05f, 0.0f, // Left
+		  0.0f,    0.1f, 0.0f, // Top
+		 0.05f,  -0.05f, 0.0f, // Right
 	};
 
 	void SetBuffers();

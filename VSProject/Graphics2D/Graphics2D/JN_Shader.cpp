@@ -22,6 +22,14 @@ Shader::Shader(ShaderType type, std::string path)
 }
 
 
+Shader::~Shader()
+{
+	glDeleteShader(shaderID);
+
+	JN_AppendLog("Shader destroyed");
+}
+
+
 // Load the shader file into memory
 void Shader::Load(std::string path)
 {

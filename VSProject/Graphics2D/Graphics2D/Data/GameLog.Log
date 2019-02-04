@@ -3,6 +3,11 @@ Triangle created
 Game created
 Application init OK
 Loaded Shader.frag
+ERROR::SHADER::COMPILATION_FAILED
 Loaded Shader.vert
+Shader destroyed
+Shader destroyed
 Game init OK
 Triangle created
+Game destroyed
+Application destroyed

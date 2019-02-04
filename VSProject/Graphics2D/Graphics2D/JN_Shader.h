@@ -12,6 +12,7 @@ public:
 
 	Shader();									// Default constructor
 	Shader(ShaderType type, std::string path);	// Load the shader code from a text file
+	~Shader();									// Deconstructor
 
 	/* - - - - GETS - - - -*/
 	GLuint GetShaderID();
