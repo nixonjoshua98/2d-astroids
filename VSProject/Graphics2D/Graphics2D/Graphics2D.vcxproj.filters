@@ -50,5 +50,8 @@
     <ClInclude Include="JN_Shader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="JN_Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

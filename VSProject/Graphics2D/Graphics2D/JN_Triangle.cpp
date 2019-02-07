@@ -27,7 +27,11 @@ void JN_Triangle::Init()
 
 void JN_Triangle::Render()
 {
-	/*GLfloat x;
+	glDeleteBuffers(1, &vertexBuffer);
+	glDeleteVertexArrays(1, &vertexArray);
+
+
+	GLfloat x;
 	x = vertices[4] >= 1.0f ? 0 : vertices[4] + 0.01;
 	vertices[4] = x;
 
@@ -36,9 +40,8 @@ void JN_Triangle::Render()
 
 	x = vertices[6] >= 1.0f ? 0 : vertices[6] + 0.01;
 	vertices[6] = x;
-	SetBuffers();
-	*/
 
+	SetBuffers();
 
 	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	glBindVertexArray(vertexArray);
