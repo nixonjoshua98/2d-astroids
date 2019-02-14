@@ -1,10 +1,12 @@
 Application created
-Triangle created
 Game created
 Application init OK
-Loaded Shader.frag
-Loaded Shader.vert
+Player created
+Loaded PlayerShader.frag
+Loaded PlayerShader.vert
 Shader destroyed
 Shader destroyed
 Game init OK
-Triangle created
+Game destroyed
+Player destroyed
+Application destroyed

@@ -2,8 +2,7 @@
 #define JN_GAME_H
 
 #include "JN_Application.h"
-#include "JN_Triangle.h"
-#include "JN_Shader.h"
+#include "JN_Player.h"
 
 #include <memory>
 
@@ -13,20 +12,19 @@ public:
 	JN_Game();	// Constructor
 	~JN_Game();	// Deconstructor
 
-	bool Init(std::shared_ptr<JN_Application> app);	// Init objects etc.
-	void Run();										// Game loop
-
 	/* - - - -  CONSTANTS - - - - */
 	const int FRAMES_PER_SECOND = 60;
+
+
+	bool Init(std::shared_ptr<JN_Application> app);	// Init objects etc.
+	void Run();										// Game loop
 
 private:
 	int currentFps = 0;				// Stores the current FPS, got from the framelock
 	bool gameRunning = true;		// Bool flag to run the game loop
-	GLuint defaultShaderProgram;	// ...
 
 	std::shared_ptr<JN_Application> app = NULL;	// Application, stores the window, renderer etc.
-
-	JN_Triangle tri;
+	std::shared_ptr<JN_Player> player = NULL;	// Player object
 
 	void Input();	// Input check
 	void Render();	// Render objects and flip buffer

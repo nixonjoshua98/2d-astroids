@@ -12,7 +12,7 @@ public:
 	bool Init();		// Inits the sub-systems and create the standard objects
 
 	/* - - - -  CONSTANTS - - - - */
-	const char* WINDOW_TITLE = "Joshua Nixon | 16632283 | CGP2012M | My 2D Game";
+	const char* WINDOW_TITLE = "Joshua Nixon | 16632283 | CGP2012M Graphics | My 2D Game";
 	const int STARTING_WIDTH = 800;
 	const int STARTING_HEIGHT = 640;
 

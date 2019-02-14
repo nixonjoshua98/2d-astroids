@@ -22,16 +22,9 @@ JN_Game::~JN_Game()
 bool JN_Game::Init(std::shared_ptr<JN_Application> app)
 {
 	this->app = app;
+	this->player = std::make_shared<JN_Player>();
 
-	defaultShaderProgram = glCreateProgram();
-
-	Shader frag = Shader(Shader::ShaderType::Fragment, "Shader.frag");
-	Shader vert = Shader(Shader::ShaderType::Vertex, "Shader.vert");
-
-	glAttachShader(defaultShaderProgram, frag.GetShaderID());
-	glAttachShader(defaultShaderProgram, vert.GetShaderID());
-
-	glLinkProgram(defaultShaderProgram);
+	this->player->Init();
 
 	return true;
 }
@@ -40,10 +33,6 @@ bool JN_Game::Init(std::shared_ptr<JN_Application> app)
 // Game loop
 void JN_Game::Run()
 {
-	tri = JN_Triangle();
-	tri.Init();
-	
-
 	while (gameRunning)
 	{
 		auto frameLock = JN_FrameLock(FRAMES_PER_SECOND, currentFps);
@@ -51,7 +40,7 @@ void JN_Game::Run()
 		Input();
 		Render();
 
-		std::cout << "FPS: " << currentFps << std::endl;
+		//std::cout << "FPS: " << currentFps << std::endl;
 	}
 }
 
@@ -81,9 +70,9 @@ void JN_Game::Render()
 {
 	app->ClearContext(0.0f, 0.0f, 0.0f);
 
-	glUseProgram(defaultShaderProgram);
+	// ... Render stuff here
+	player->Render();
 
-	tri.Render();
 
 	SDL_GL_SwapWindow(app->GetWindow());	// Flip the buffer()
 }

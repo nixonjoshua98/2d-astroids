@@ -9,20 +9,19 @@ public:
 	JN_Triangle();	// Constructor
 	~JN_Triangle();	// Deconstructor
 
-	void Init();
+	/* - - - - CONSTANTS - - - -*/
+	const int VERTICES_LENGTH = 18;
 
+	void Init(GLfloat vertices[]);
 	void Render();
 
 
 private:
 	GLuint vertexArray;
 	GLuint vertexBuffer;
+	GLuint program;
 
-	GLfloat vertices[9] = {
-		-0.05f,  -0.05f, 0.0f, // Left
-		  0.0f,    0.1f, 0.0f, // Top
-		 0.05f,  -0.05f, 0.0f, // Right
-	};
+	GLfloat vertices[18];
 
 	void SetBuffers();
 

@@ -1,4 +1,4 @@
-//#define SDL_MAIN_HANDLED
+#define SDL_MAIN_HANDLED
 
 #include "JN_Application.h"
 #include "JN_Logging.h"
@@ -6,6 +6,44 @@
 
 #include <SDL.h>
 #include <memory>
+
+
+/*
+	Window
+		Pass:		Window with name, module, number									COMPLETE
+		2.2:		Window move + resize												COMPLETE
+		2.1:		Fullscreen
+		1st:		Aspect ratio
+		1st+:		Half size of desktop and centered on startup
+
+	2D Geometry
+		Pass:		Visible geometry for the player and bubbles
+		2.2:		Correct size background
+		2.1:		Geometry for worl boundaries
+		1st:		Player fires a projectile
+		1st+:		Bubbles 'animate' when hit
+
+	Playable Game:
+		Pass:		Player can move/rotate and bubles can move
+		2.2:		Bubbles are constrained within playable area
+		2.1:		Bubbles destroyed when hit
+		1st:		Player has 3 lives which are shown onscreen
+		1st+:		Player 'catches' the projectile or another gameplay mechanic
+
+	Colours and Textures:
+		Pass:		Geometry isn't all the same colour
+		2.2:		Player is textured
+		2.1:		Bubbles and background are textured
+		1st:		Transparency
+		1st+:		Bubbles/player show Textured destruction
+
+	Shaders:
+		Pass:		Vertex and fragment shader are present								COMPLETE
+		2.2:		Shaders are in own file												COMPLETE
+		2.1:		Variable data is passed as uniform to manipulate textures/geometry	
+		1st:		Random colors for the bubbles created via shaders
+		1st+:		Textures/geometry manipulated by shaders
+*/
 
 int main(int argc, char *argv[])
 {
