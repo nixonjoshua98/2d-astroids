@@ -38,9 +38,8 @@ void JN_Game::Run()
 		auto frameLock = JN_FrameLock(FRAMES_PER_SECOND, currentFps);
 
 		Input();
+		Update();
 		Render();
-
-		//std::cout << "FPS: " << currentFps << std::endl;
 	}
 }
 
@@ -65,6 +64,14 @@ void JN_Game::Input()
 }
 
 
+
+void JN_Game::Update()
+{
+	player->Update();
+}
+
+
+
 // Render objects to buffer
 void JN_Game::Render()
 {
@@ -72,7 +79,6 @@ void JN_Game::Render()
 
 	// ... Render stuff here
 	player->Render();
-
 
 	SDL_GL_SwapWindow(app->GetWindow());	// Flip the buffer()
 }

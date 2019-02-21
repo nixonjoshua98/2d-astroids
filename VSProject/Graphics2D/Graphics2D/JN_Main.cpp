@@ -14,12 +14,12 @@
 		2.2:		Window move + resize												COMPLETE
 		2.1:		Fullscreen
 		1st:		Aspect ratio
-		1st+:		Half size of desktop and centered on startup
+		1st+:		Half size of desktop and centered on startup						COMPLETE
 
 	2D Geometry
 		Pass:		Visible geometry for the player and bubbles
 		2.2:		Correct size background
-		2.1:		Geometry for worl boundaries
+		2.1:		Geometry for world boundaries
 		1st:		Player fires a projectile
 		1st+:		Bubbles 'animate' when hit
 

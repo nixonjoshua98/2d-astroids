@@ -2,6 +2,7 @@
 #define JN_APPLICATION_H
 
 #include <SDL.h>
+#include <GL/glew.h>
 
 class JN_Application
 {
@@ -13,12 +14,15 @@ public:
 
 	/* - - - -  CONSTANTS - - - - */
 	const char* WINDOW_TITLE = "Joshua Nixon | 16632283 | CGP2012M Graphics | My 2D Game";
-	const int STARTING_WIDTH = 800;
-	const int STARTING_HEIGHT = 640;
 
 	const int GL_MAJOR = 4;
 	const int GL_MINOR = 3;
 
+	// These are constants but I grab the monitor resolution at runtime
+	int STARTING_WIDTH = 800;
+	int STARTING_HEIGHT = 640;
+
+	void SetWindowPosition();
 	void ClearContext(float r, float g, float b);
 
 

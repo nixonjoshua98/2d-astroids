@@ -5,6 +5,13 @@
 #include <string>
 #include <fstream>
 
+
+namespace ShaderConstants
+{
+	extern const std::string SHADER_DIR;
+}
+
+
 class Shader
 {
 public:

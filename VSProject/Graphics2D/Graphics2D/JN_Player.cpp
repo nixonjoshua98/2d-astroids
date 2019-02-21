@@ -23,6 +23,7 @@ JN_Player::~JN_Player()
 }
 
 
+
 void JN_Player::Init()
 {
 	program = glCreateProgram();
@@ -35,17 +36,21 @@ void JN_Player::Init()
 
 	glLinkProgram(program);
 
-	tri.Init(vertices);
+	tri.Init(vertices, "UnitedKingdom.png");
+}
+
+
+void JN_Player::Update()
+{
+	GLuint offsetVar = glGetUniformLocation(program, "offset");
+
+	glProgramUniform1f(program, offsetVar, 4.0f);
 }
 
 
 void JN_Player::Render()
 {
 	glUseProgram(program);
-
-	GLuint offsetVar = glGetUniformLocation(program, "offset");
-
-	glProgramUniform1f(program, offsetVar, 5.0f);
 
 	tri.Render();
 }

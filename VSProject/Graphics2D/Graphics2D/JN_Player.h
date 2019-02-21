@@ -12,18 +12,19 @@ public:
 	~JN_Player();
 
 	void Init();
+	void Update();
 	void Render();
 
 private:
 	JN_Triangle tri;
 
-	GLuint program;			// Stores the shaders
+	GLuint program;			// Stores the shaders etc.
 
-	GLfloat vertices[18] = {
-		//  X,		Y,		Z,		R,		G,		B,
-	   -0.05f, -0.05f,	 0.0f,   1.0f,   0.0f,   0.0f,
-		0.05f, -0.05f,   0.0f,	 0.0f,   1.0f,   0.0f,
-		 0.0f,  0.10f,   0.0f,   0.0f,   0.0f,   1.0f,
+	GLfloat vertices[24] = {
+		//  X,		 Y,		 Z,		 R,		 G,	 	 B,		Tx,		Ty,
+		 0.0f,	  0.05f,   0.0f,  1.0f,   0.0f,   0.0f,	  1.0f,	  0.5f,
+	   0.025f,  -0.025f,   0.0f,  0.0f,   0.0f,   1.0f,	  0.5f,   0.0f,
+	  -0.025f,  -0.025f,   0.0f,  0.0f,   1.0f,   0.0f,   0.7f,   0.5f,
 	};
 };
 

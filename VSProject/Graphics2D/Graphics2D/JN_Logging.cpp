@@ -5,7 +5,7 @@
 
 
 /* - - - -  CONSTANTS - - - - */
-extern const char* LogConstants::LOG_FILE = "Data/GameLog.Log";
+extern const std::string LogConstants::LOG_FILE = "./Resources/Data/GameLog.Log";
 
 
 // Constructor

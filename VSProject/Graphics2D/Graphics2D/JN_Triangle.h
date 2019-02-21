@@ -1,6 +1,8 @@
 #ifndef JN_TRIANGLE_H
 #define JN_TRIANGLE_H
 
+#include "JN_Texture.h"
+
 #include <GL/glew.h>
 
 class JN_Triangle
@@ -12,11 +14,13 @@ public:
 	/* - - - - CONSTANTS - - - -*/
 	const int VERTICES_LENGTH = 18;
 
-	void Init(GLfloat vertices[]);
+	void Init(GLfloat vertices[], std::string textureFile);
 	void Render();
 
 
 private:
+	JN_Texture texture;
+
 	GLuint vertexArray;
 	GLuint vertexBuffer;
 	GLuint program;

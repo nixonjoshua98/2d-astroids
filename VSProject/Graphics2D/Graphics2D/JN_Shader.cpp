@@ -5,6 +5,9 @@
 #include <fstream>
 
 
+extern const std::string ShaderConstants::SHADER_DIR = "./Resources/Shaders/";
+
+
 // Default constructor
 Shader::Shader()
 {
@@ -33,7 +36,7 @@ Shader::~Shader()
 // Load the shader file into memory
 void Shader::Load(std::string path)
 {
-	std::ifstream inFile("./Shaders/" + path);
+	std::ifstream inFile(ShaderConstants::SHADER_DIR + path);
 
 	while (inFile.good())
 	{

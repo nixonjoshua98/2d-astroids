@@ -27,6 +27,7 @@ private:
 	std::shared_ptr<JN_Player> player = NULL;	// Player object
 
 	void Input();	// Input check
+	void Update();	// Update each object
 	void Render();	// Render objects and flip buffer
 };
 

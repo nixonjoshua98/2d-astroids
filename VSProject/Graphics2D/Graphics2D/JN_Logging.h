@@ -4,12 +4,10 @@
 #include <string>
 #include <chrono>
 
-/*
- * Stores constants related to logging, defs in .cpp file
- */
+
 namespace LogConstants
 {
-	extern const char* LOG_FILE;	// Logging file path
+	extern const std::string LOG_FILE;	// Logging file path
 }
 
 struct JN_LogTimeSpan
