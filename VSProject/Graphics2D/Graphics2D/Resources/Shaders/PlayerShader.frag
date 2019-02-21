@@ -1,9 +1,11 @@
 #version 440 core
 
 in vec3 vertexColour;
-out vec4 fragmentColour;
+in vec2 texCoords;
+
+uniform sampler2D tex;
 
 void main()
 {
-	fragmentColour = vec4(vertexColour, 1.0f);
+	gl_FragColor = texture(tex, texCoords);
 }

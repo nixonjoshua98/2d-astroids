@@ -12,6 +12,8 @@
 JN_Player::JN_Player()
 {
 	JN_AppendLog("Player created");
+
+	scale = glm::scale(scale, glm::vec3(0.2f, 0.2f, 1.0f));
 }
 
 
@@ -36,15 +38,35 @@ void JN_Player::Init()
 
 	glLinkProgram(program);
 
-	tri.Init(vertices, "UnitedKingdom.png");
+	tri.Init(vertices, "CarbonFibre.jpg");
 }
+
+
+void JN_Player::Input(SDL_Event e)
+{
+	switch (e.type)
+	{
+	case SDL_KEYDOWN:
+		switch (e.key.keysym.sym) 
+		{
+		case SDLK_w:
+			translate = glm::translate(translate, glm::vec3((float)cos(angle) * 0.01f, (float)sin(angle) * 0.01f, 0.0f));
+			break;
+		}
+
+		break;
+
+	default:
+		break;
+	}
+}
+
 
 
 void JN_Player::Update()
 {
-	GLuint offsetVar = glGetUniformLocation(program, "offset");
-
-	glProgramUniform1f(program, offsetVar, 4.0f);
+	GLuint transform = glGetUniformLocation(program, "uTransform");
+	glUniformMatrix4fv(transform, 1, GL_FALSE, glm::value_ptr(translate * rotate * scale));
 }
 
 

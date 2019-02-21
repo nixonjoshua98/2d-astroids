@@ -40,6 +40,8 @@ void JN_Game::Run()
 		Input();
 		Update();
 		Render();
+
+		std::cout << "Current FPS: " << currentFps << std::endl;
 	}
 }
 
@@ -58,6 +60,7 @@ void JN_Game::Input()
 			break;
 
 		default:
+			player->Input(e);
 			break;
 		}
 	}

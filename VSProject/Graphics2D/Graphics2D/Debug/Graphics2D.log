@@ -1,1 +1,12 @@
-﻿
+﻿  JN_Triangle.cpp
+  JN_Texture.cpp
+  JN_Shader.cpp
+  JN_Player.cpp
+  JN_Main.cpp
+  JN_Logging.cpp
+  JN_Game.cpp
+  JN_FrameLock.cpp
+  JN_Application.cpp
+  Generating Code...
+  Graphics2D.vcxproj -> C:\Users\Joshua\Documents\Repos\OpenGL-2D-Game\VSProject\Graphics2D\Debug\Graphics2D.exe
+  Graphics2D.vcxproj -> C:\Users\Joshua\Documents\Repos\OpenGL-2D-Game\VSProject\Graphics2D\Debug\Graphics2D.pdb (Partial PDB)
