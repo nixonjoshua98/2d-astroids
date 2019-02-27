@@ -24,7 +24,7 @@
 		1st+:		Bubbles 'animate' when hit
 
 	Playable Game:
-		Pass:		Player can move/rotate and bubles can move
+		Pass:		Player can move/rotate and bubles can move							COMPLETE
 		2.2:		Bubbles are constrained within playable area
 		2.1:		Bubbles destroyed when hit
 		1st:		Player has 3 lives which are shown onscreen

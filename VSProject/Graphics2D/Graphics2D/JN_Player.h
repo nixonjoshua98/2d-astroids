@@ -4,6 +4,7 @@
 #define GLM_FORCE_RADIANS
 
 #include "JN_Triangle.h"
+#include "JN_Transform.h"
 
 #include <GL/glew.h>
 
@@ -23,12 +24,10 @@ public:
 	void Render();
 
 private:
-	float angle = 0.0f;
-	glm::mat4 translate = glm::mat4(1.0f);
-	glm::mat4 rotate = glm::mat4(1.0f);
-	glm::mat4 scale = glm::mat4(1.0f);
-
+	JN_Transform transform;
 	JN_Triangle tri;
+
+	bool movingForward = false;
 
 	GLuint program;			// Stores the shaders etc.
 

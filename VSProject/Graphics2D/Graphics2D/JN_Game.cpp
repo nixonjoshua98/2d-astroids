@@ -41,7 +41,7 @@ void JN_Game::Run()
 		Update();
 		Render();
 
-		std::cout << "Current FPS: " << currentFps << std::endl;
+		//std::cout << "Current FPS: " << currentFps << std::endl;
 	}
 }
 

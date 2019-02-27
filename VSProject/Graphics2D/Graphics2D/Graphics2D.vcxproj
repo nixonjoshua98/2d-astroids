@@ -27,6 +27,7 @@
     <ClCompile Include="JN_Player.cpp" />
     <ClCompile Include="JN_Shader.cpp" />
     <ClCompile Include="JN_Texture.cpp" />
+    <ClCompile Include="JN_Transfom.cpp" />
     <ClCompile Include="JN_Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -37,6 +38,7 @@
     <ClInclude Include="JN_Player.h" />
     <ClInclude Include="JN_Shader.h" />
     <ClInclude Include="JN_Texture.h" />
+    <ClInclude Include="JN_Transform.h" />
     <ClInclude Include="JN_Triangle.h" />
   </ItemGroup>
   <ItemGroup>
@@ -47,7 +49,7 @@
     <ProjectGuid>{FC49E162-563D-4E4A-B6F1-5EB920162ED6}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>CGP2012M_Graphics</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
     <ProjectName>Graphics2D</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
