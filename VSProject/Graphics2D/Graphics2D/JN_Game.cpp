@@ -35,11 +35,13 @@ void JN_Game::Run()
 {
 	while (gameRunning)
 	{
-		auto frameLock = JN_FrameLock(FRAMES_PER_SECOND, currentFps);
+		auto frameLock = JN_FrameLock(60, currentFps);
 
 		Input();
 		Update();
 		Render();
+
+		std::cout << currentFps << std::endl;
 	}
 }
 

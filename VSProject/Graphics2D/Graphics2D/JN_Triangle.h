@@ -12,7 +12,7 @@ public:
 	~JN_Triangle();	// Deconstructor
 
 	/* - - - - CONSTANTS - - - -*/
-	const int VERTICES_LENGTH = 18;
+	const int VERTICES_LENGTH = 24;
 
 	void Init(GLfloat vertices[], std::string textureFile);
 	void Render();
@@ -25,7 +25,7 @@ private:
 	GLuint vertexBuffer;
 	GLuint program;
 
-	GLfloat vertices[18];
+	GLfloat vertices[24];
 
 	void SetBuffers();
 

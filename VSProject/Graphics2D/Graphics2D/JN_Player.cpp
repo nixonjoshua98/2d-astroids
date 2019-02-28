@@ -38,7 +38,7 @@ void JN_Player::Init()
 
 	glLinkProgram(program);
 
-	tri.Init(vertices, "UnitedKingdom.png");
+	tri.Init(vertices, "Brick.png");
 }
 
 
@@ -54,13 +54,11 @@ void JN_Player::Input(SDL_Event e)
 			break;
 
 		case SDLK_a:
-			transform.angle += glm::radians(10.0f);
-			transform.rotate = glm::rotate(transform.rotate, glm::radians(10.0f), glm::vec3(0, 0, 1));
+			rotDir = RotationDirection::LEFT;
 			break;
 
 		case SDLK_d:
-			transform.angle -= glm::radians(10.0f);
-			transform.rotate = glm::rotate(transform.rotate, glm::radians(-10.0f), glm::vec3(0, 0, 1));
+			rotDir = RotationDirection::RIGHT;
 			break;
 
 		}
@@ -72,6 +70,14 @@ void JN_Player::Input(SDL_Event e)
 		case SDLK_w:
 			movingForward = false;
 			break;
+
+		case SDLK_a:
+			rotDir = (rotDir == RotationDirection::LEFT) ? RotationDirection::NONE : rotDir;
+			break;
+
+		case SDLK_d:
+			rotDir = (rotDir == RotationDirection::RIGHT) ? RotationDirection::NONE : rotDir;
+			break;
 		}
 		break;
 	}
@@ -81,10 +87,21 @@ void JN_Player::Input(SDL_Event e)
 
 void JN_Player::Update()
 {
-	if (movingForward)
+	if (rotDir == RotationDirection::LEFT)
 	{
-		transform.translate = glm::translate(transform.translate, glm::vec3((float)cos(transform.angle) * 0.01f, (float)sin(transform.angle) * 0.01f, 0.0f));
+		transform.angle += glm::radians(10.0f);
+		transform.rotate = glm::rotate(transform.rotate, glm::radians(10.0f), glm::vec3(0, 0, 1));
 	}
+
+	if (rotDir == RotationDirection::RIGHT)
+	{
+		transform.angle -= glm::radians(10.0f);
+		transform.rotate = glm::rotate(transform.rotate, glm::radians(-10.0f), glm::vec3(0, 0, 1));
+	}
+
+
+	if (movingForward)
+		transform.translate = glm::translate(transform.translate, glm::vec3((float)cos(transform.angle) * 0.01f, (float)sin(transform.angle) * 0.01f, 0.0f));
 
 	GLuint t = glGetUniformLocation(program, "uTransform");
 	glUniformMatrix4fv(t, 1, GL_FALSE, glm::value_ptr(transform.Multiply()));

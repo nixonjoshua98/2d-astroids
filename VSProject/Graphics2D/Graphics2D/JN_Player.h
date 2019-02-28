@@ -18,6 +18,8 @@ public:
 	JN_Player();
 	~JN_Player();
 
+	enum class RotationDirection {NONE, LEFT, RIGHT};
+
 	void Init();
 	void Input(SDL_Event e);
 	void Update();
@@ -27,7 +29,9 @@ private:
 	JN_Transform transform;
 	JN_Triangle tri;
 
+	/* - - - - DIRECTION FLAGS - - - - */
 	bool movingForward = false;
+	RotationDirection rotDir = RotationDirection::NONE;
 
 	GLuint program;			// Stores the shaders etc.
 
