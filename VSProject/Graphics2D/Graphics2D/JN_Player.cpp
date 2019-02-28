@@ -38,7 +38,7 @@ void JN_Player::Init()
 
 	glLinkProgram(program);
 
-	tri.Init(vertices, "CarbonFibre.jpg");
+	tri.Init(vertices, "UnitedKingdom.png");
 }
 
 
@@ -50,7 +50,6 @@ void JN_Player::Input(SDL_Event e)
 		switch (e.key.keysym.sym)
 		{
 		case SDLK_w:
-			std::cout << "[W] down\n";
 			movingForward = true;
 			break;
 
@@ -65,15 +64,16 @@ void JN_Player::Input(SDL_Event e)
 			break;
 
 		}
+		break;
 
 	case SDL_KEYUP:
 		switch (e.key.keysym.sym)
 		{
 		case SDLK_w:
-			std::cout << "[W] up\n";
 			movingForward = false;
 			break;
 		}
+		break;
 	}
 }
 

@@ -4,7 +4,10 @@ Application init OK
 Player created
 Loaded PlayerShader.frag
 Loaded PlayerShader.vert
-CarbonFibre.jpg loaded OK
+UnitedKingdom.png loaded OK
 Shader destroyed
 Shader destroyed
 Game init OK
+Game destroyed
+Player destroyed
+Application destroyed

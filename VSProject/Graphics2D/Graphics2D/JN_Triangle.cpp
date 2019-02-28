@@ -27,9 +27,9 @@ void JN_Triangle::Init(GLfloat vertices[], std::string textureFile)
 		this->vertices[i] = vertices[i];
 	}
 
-	texture.Load(textureFile);
-
 	SetBuffers();
+
+	texture.Load(textureFile);
 }
 
 

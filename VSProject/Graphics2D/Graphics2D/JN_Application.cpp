@@ -58,10 +58,11 @@ bool JN_Application::InitSDL()
 		);
 
 		if (window)
+		{
+			SetWindowPosition();
 			SDL_SetWindowMinimumSize(window, STARTING_WIDTH, STARTING_HEIGHT);
+		}
 	}
-
-	SetWindowPosition();
 
 	return isSDL;
 }
@@ -79,7 +80,7 @@ bool JN_Application::InitGL()
 
 	context = SDL_GL_CreateContext(window);
 
-	//SDL_GL_SetSwapInterval(1);	// This stops the render delay
+	SDL_GL_SetSwapInterval(1);	// This stops the render delay
 
 	glewExperimental = GL_TRUE;
 
@@ -95,7 +96,6 @@ void JN_Application::ClearContext(float r, float g, float b)
 {
 	glClearColor(r, g, b, 1);
 	glClear(GL_COLOR_BUFFER_BIT);
-	glColor3f(0.0f, 1.0f, 0.0f);
 }
 
 
