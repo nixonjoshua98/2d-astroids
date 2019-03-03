@@ -1,2 +1,4 @@
 ﻿  JN_Game.cpp
-  Graphics2D.vcxproj -> C:\Users\Student\Downloads\OpenGL-2D-Game-Working\VSProject\Graphics2D\Debug\Graphics2D.exe
+c:\users\joshua\documents\repos\opengl-2d-game\vsproject\graphics2d\graphics2d\jn_game.cpp(87): warning C4065: switch statement contains 'default' but no 'case' labels
+  Graphics2D.vcxproj -> C:\Users\Joshua\Documents\Repos\OpenGL-2D-Game\VSProject\Graphics2D\Debug\Graphics2D.exe
+  Graphics2D.vcxproj -> C:\Users\Joshua\Documents\Repos\OpenGL-2D-Game\VSProject\Graphics2D\Debug\Graphics2D.pdb (Partial PDB)

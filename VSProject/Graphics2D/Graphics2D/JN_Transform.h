@@ -16,6 +16,12 @@ public:
 	glm::mat4 scale = glm::mat4(1.0f);
 
 	glm::mat4 Multiply();
+	glm::vec3 Position();
+
+	glm::vec3 direction;
+
+	void Translate(glm::vec3 vec);
+	float Direction2Angle(glm::vec2 from, glm::vec2 to);
 };
 
 #endif // !JN_TRANSFORM_H

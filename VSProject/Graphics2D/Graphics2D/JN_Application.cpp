@@ -58,10 +58,7 @@ bool JN_Application::InitSDL()
 		);
 
 		if (window)
-		{
 			SetWindowPosition();
-			SDL_SetWindowMinimumSize(window, STARTING_WIDTH, STARTING_HEIGHT);
-		}
 	}
 
 	return isSDL;
@@ -84,6 +81,9 @@ bool JN_Application::InitGL()
 
 	glewExperimental = GL_TRUE;
 
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
 	if (glewInit() != GLEW_OK)
 		return false;	
 
@@ -96,6 +96,16 @@ void JN_Application::ClearContext(float r, float g, float b)
 {
 	glClearColor(r, g, b, 1);
 	glClear(GL_COLOR_BUFFER_BIT);
+}
+
+
+void JN_Application::ToggleFullScreen()
+{
+	JN_AppendLog("Toggled fullscreen");
+
+	auto flag = isFullscreen ? 0 : SDL_WINDOW_FULLSCREEN_DESKTOP;
+	SDL_SetWindowFullscreen(window, flag);
+	isFullscreen = !isFullscreen;
 }
 
 
@@ -113,11 +123,9 @@ void JN_Application::SetWindowPosition()
 
 	SDL_GetWindowSize(window, &w, &h);	// Get current width, height
 
-	// Half the geometry (CRG objective)
-	STARTING_WIDTH = w / 2;
-	STARTING_HEIGHT = h / 2;
+	SDL_SetWindowSize(window, w / 2, h / 2);					// Set the new geometry
+	SDL_SetWindowFullscreen(window, 0);							// Disable full screen
+	SDL_SetWindowPosition(window, (w / 2) / 2, (h / 2) / 2);	// Center the window
 
-	SDL_SetWindowSize(window, STARTING_WIDTH, STARTING_HEIGHT);					// Set the new geometry
-	SDL_SetWindowFullscreen(window, 0);											// Disable full screen
-	SDL_SetWindowPosition(window, STARTING_WIDTH / 2, STARTING_HEIGHT / 2);		// Center the window
+	SDL_SetWindowMinimumSize(window, w / 2, h / 2);
 };

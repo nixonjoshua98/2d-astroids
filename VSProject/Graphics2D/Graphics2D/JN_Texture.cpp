@@ -6,8 +6,6 @@
 #include <SDL_image.h>
 #include <iostream>
 
-extern const std::string TextureConstants::TEXTURE_DIR = "./Resources/Textures/";
-
 
 JN_Texture::~JN_Texture()
 {
@@ -20,7 +18,7 @@ JN_Texture::~JN_Texture()
 
 void JN_Texture::Load(std::string file)
 {
-	std::string path = TextureConstants::TEXTURE_DIR + file;
+	std::string path = "./Resources/Textures/" + file;
 
 	surface = IMG_Load(path.c_str());
 
@@ -47,7 +45,15 @@ void JN_Texture::SetBuffers()
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, surface->w, surface->h, 0, GL_RGBA, GL_UNSIGNED_BYTE, surface->pixels);
+	if (surface->format->BytesPerPixel == 3)
+	{
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, surface->w, surface->h, 0, GL_RGB, GL_UNSIGNED_BYTE, surface->pixels);
+	}
+	else
+	{
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, surface->w, surface->h, 0, GL_RGBA, GL_UNSIGNED_BYTE, surface->pixels);
+	}
+
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
 

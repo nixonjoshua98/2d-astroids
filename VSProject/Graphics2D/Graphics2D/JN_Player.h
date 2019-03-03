@@ -3,7 +3,7 @@
 
 #define GLM_FORCE_RADIANS
 
-#include "JN_Triangle.h"
+#include "JN_Circle.h"
 #include "JN_Transform.h"
 
 #include <GL/glew.h>
@@ -27,13 +27,11 @@ public:
 
 private:
 	JN_Transform transform;
-	JN_Triangle tri;
+	JN_Circle circle;
 
 	/* - - - - DIRECTION FLAGS - - - - */
 	bool movingForward = false;
 	RotationDirection rotDir = RotationDirection::NONE;
-
-	GLuint program;			// Stores the shaders etc.
 
 	GLfloat vertices[24] = {
 		//  X,		 Y,		 Z,		 R,		 G,	 	 B,		Tx,		Ty,

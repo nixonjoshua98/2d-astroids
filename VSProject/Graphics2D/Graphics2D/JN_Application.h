@@ -18,12 +18,9 @@ public:
 	const int GL_MAJOR = 4;
 	const int GL_MINOR = 3;
 
-	// These are constants but I grab the monitor resolution at runtime
-	int STARTING_WIDTH = 800;
-	int STARTING_HEIGHT = 640;
-
 	void SetWindowPosition();
 	void ClearContext(float r, float g, float b);
+	void ToggleFullScreen();
 
 
 	/* - - - -  GETS - - - - */
@@ -32,6 +29,8 @@ public:
 private:
 	SDL_Window* window = NULL;		// Window ptr
 	SDL_GLContext context = NULL;	// OpenGL context
+
+	bool isFullscreen = false;
 
 	bool InitSDL();
 	bool InitGL();

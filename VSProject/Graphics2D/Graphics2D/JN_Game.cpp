@@ -22,9 +22,15 @@ JN_Game::~JN_Game()
 bool JN_Game::Init(std::shared_ptr<JN_Application> app)
 {
 	this->app = app;
+
 	this->player = std::make_shared<JN_Player>();
 
 	this->player->Init();
+
+	for (int i = 0; i < 50; i++)
+	{
+		bubbles.push_back(new JN_Bubble());
+	}
 
 	return true;
 }
@@ -40,8 +46,6 @@ void JN_Game::Run()
 		Input();
 		Update();
 		Render();
-
-		std::cout << currentFps << std::endl;
 	}
 }
 
@@ -55,13 +59,32 @@ void JN_Game::Input()
 	{
 		switch (e.type)
 		{
-		case SDL_QUIT:	// Window has been closed
+			// Window has been closed
+		case SDL_QUIT:
 			gameRunning = false;
 			break;
 
-		default:
-			player->Input(e);
-			break;
+			// Key has been pressed
+		case SDL_KEYDOWN:
+			switch (e.key.keysym.sym)
+			{
+			case SDLK_F11:
+				app->ToggleFullScreen();
+				break;
+
+			default:
+				player->Input(e);
+				break;
+			}
+
+			// Key has been released
+		case SDL_KEYUP:
+			switch (e.key.keysym.sym)
+			{
+			default:
+				player->Input(e);
+				break;
+			}
 		}
 	}
 }
@@ -71,6 +94,9 @@ void JN_Game::Input()
 void JN_Game::Update()
 {
 	player->Update();
+
+	for (auto b : bubbles)
+		b->Update();
 }
 
 
@@ -83,5 +109,8 @@ void JN_Game::Render()
 	// ... Render stuff here
 	player->Render();
 
-	SDL_GL_SwapWindow(app->GetWindow());	// Flip the buffer()
+	for (auto b : bubbles)
+		b->Render();
+
+	SDL_GL_SwapWindow(app->GetWindow());	// Flip the buffer
 }

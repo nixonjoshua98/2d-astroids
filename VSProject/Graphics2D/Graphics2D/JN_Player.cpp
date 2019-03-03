@@ -2,7 +2,6 @@
 
 #include "JN_Player.h"
 #include "JN_Logging.h"
-#include "JN_Shader.h"
 
 #include <SDL.h>
 #include <iostream>
@@ -13,7 +12,7 @@ JN_Player::JN_Player()
 {
 	JN_AppendLog("Player created");
 
-	transform.scale = glm::scale(transform.scale, glm::vec3(0.2f, 0.2f, 1.0f));
+	transform.scale = glm::scale(transform.scale, glm::vec3(0.2f * 0.75f, 0.2f, 1.0f));
 }
 
 
@@ -28,17 +27,7 @@ JN_Player::~JN_Player()
 
 void JN_Player::Init()
 {
-	program = glCreateProgram();
-
-	Shader frag = Shader(Shader::ShaderType::Fragment, "PlayerShader.frag");
-	Shader vert = Shader(Shader::ShaderType::Vertex, "PlayerShader.vert");
-
-	glAttachShader(program, frag.GetShaderID());
-	glAttachShader(program, vert.GetShaderID());
-
-	glLinkProgram(program);
-
-	tri.Init(vertices, "Brick.png");
+	circle.Init();
 }
 
 
@@ -60,7 +49,6 @@ void JN_Player::Input(SDL_Event e)
 		case SDLK_d:
 			rotDir = RotationDirection::RIGHT;
 			break;
-
 		}
 		break;
 
@@ -87,30 +75,29 @@ void JN_Player::Input(SDL_Event e)
 
 void JN_Player::Update()
 {
+	
 	if (rotDir == RotationDirection::LEFT)
 	{
-		transform.angle += glm::radians(10.0f);
-		transform.rotate = glm::rotate(transform.rotate, glm::radians(10.0f), glm::vec3(0, 0, 1));
+		transform.angle += glm::radians(3.0f);
+		transform.rotate = glm::rotate(transform.rotate, glm::radians(3.0f), glm::vec3(0, 0, 1));
 	}
+
 
 	if (rotDir == RotationDirection::RIGHT)
 	{
-		transform.angle -= glm::radians(10.0f);
-		transform.rotate = glm::rotate(transform.rotate, glm::radians(-10.0f), glm::vec3(0, 0, 1));
+		transform.angle -= glm::radians(3.0f);
+		transform.rotate = glm::rotate(transform.rotate, glm::radians(-3.0f), glm::vec3(0, 0, 1));
 	}
 
 
 	if (movingForward)
-		transform.translate = glm::translate(transform.translate, glm::vec3((float)cos(transform.angle) * 0.01f, (float)sin(transform.angle) * 0.01f, 0.0f));
-
-	GLuint t = glGetUniformLocation(program, "uTransform");
-	glUniformMatrix4fv(t, 1, GL_FALSE, glm::value_ptr(transform.Multiply()));
+	{
+		transform.Translate(glm::vec3((float)cos(transform.angle) * 0.01f, (float)sin(transform.angle) * 0.01f, 0.0f));
+	}
 }
 
 
 void JN_Player::Render()
 {
-	glUseProgram(program);
-
-	tri.Render();
+	circle.Render(glm::value_ptr(transform.Multiply()));
 }

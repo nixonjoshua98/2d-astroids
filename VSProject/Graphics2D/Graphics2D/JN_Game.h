@@ -3,8 +3,10 @@
 
 #include "JN_Application.h"
 #include "JN_Player.h"
+#include "JN_Bubble.h"
 
 #include <memory>
+#include <vector>
 
 class JN_Game
 {
@@ -22,6 +24,8 @@ public:
 private:
 	int currentFps = 0;				// Stores the current FPS, got from the framelock
 	bool gameRunning = true;		// Bool flag to run the game loop
+
+	std::vector<JN_Bubble*> bubbles;
 
 	std::shared_ptr<JN_Application> app = NULL;	// Application, stores the window, renderer etc.
 	std::shared_ptr<JN_Player> player = NULL;	// Player object
