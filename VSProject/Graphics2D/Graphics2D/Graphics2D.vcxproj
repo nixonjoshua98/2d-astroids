@@ -44,6 +44,7 @@
     <ClInclude Include="JN_Logging.h" />
     <ClInclude Include="JN_Player.h" />
     <ClInclude Include="JN_Shader.h" />
+    <ClInclude Include="JN_Square.h" />
     <ClInclude Include="JN_Texture.h" />
     <ClInclude Include="JN_Transform.h" />
     <ClInclude Include="JN_Triangle.h" />

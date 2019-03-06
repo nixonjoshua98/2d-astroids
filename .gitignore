@@ -1,2 +1,4 @@
-./CGP2012M
-./Graphics2D/.vs
+./VSProject/vs/
+./VSProject/Graphics2D/Debug/
+./VSProject/Graphics2D/x64/
+./VSProject/Debug/

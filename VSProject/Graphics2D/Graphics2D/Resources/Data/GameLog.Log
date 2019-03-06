@@ -4,23 +4,14 @@ Application init OK
 Player created
 BubbleController created
 Shuriken.png loaded OK
-Loaded Player/PlayerShader.frag
-Loaded Player/PlayerShader.vert
+Loaded Shader.frag
+Loaded Shader.vert
 Shader destroyed
 Shader destroyed
-Loaded Generic/GenericShader.frag
-Loaded Generic/GenericShader.vert
+Loaded Shader.frag
+Loaded Shader.vert
 Shader destroyed
 Shader destroyed
-Bubble.png loaded OK
-Bubble.png loaded OK
-Bubble.png loaded OK
-Bubble.png loaded OK
-Bubble.png loaded OK
-Bubble.png loaded OK
-Bubble.png loaded OK
-Bubble.png loaded OK
-Bubble.png loaded OK
 Bubble.png loaded OK
 Game init OK
 Game destroyed

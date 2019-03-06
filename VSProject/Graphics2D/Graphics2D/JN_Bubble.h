@@ -8,7 +8,7 @@ class JN_Bubble : public JN_Gameobject
 public:
 	void Init() override;
 	void Update() override;
-	void Render(GLuint shaderProgram);
+	void Render(GLuint shaderProgram, const float* uViewVal, const float* uModelVal);
 };
 
 

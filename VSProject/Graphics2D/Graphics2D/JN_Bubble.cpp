@@ -11,7 +11,7 @@ void JN_Bubble::Init()
 	float angle = glm::radians((float)(rand() % 360));
 
 	transform.SetDirection((float)cos(angle), (float)sin(angle), 0.0f);
-	transform.Scale(0.2f * 0.75f, 0.2f, 1.0f);
+	transform.Scale(0.05f * 0.75f, 0.05f, 1.0f);
 	transform.Rotate(angle);
 }
 
@@ -40,9 +40,9 @@ void JN_Bubble::Update()
 
 
 
-void JN_Bubble::Render(GLuint shaderProgram)
+void JN_Bubble::Render(GLuint shaderProgram, const float* uViewVal, const float* uProjectionVal)
 {
-	const float* uTransformVal = glm::value_ptr(transform.Multiply());
+	const float* uModelVal = glm::value_ptr(transform.Multiply());
 
-	sprite.Render(shaderProgram, uTransformVal);
+	sprite.Render(shaderProgram, uModelVal, uViewVal, uProjectionVal);
 }

@@ -13,7 +13,7 @@ JN_Player::JN_Player()
 {
 	JN_AppendLog("Player created");
 
-	transform.Scale(0.1f * 0.75f, 0.1f, 1.0f);
+	transform.Scale(0.05f * 0.75f, 0.05f, 1.0f);
 }
 
 
@@ -82,14 +82,12 @@ void JN_Player::Update()
 	if (rotDir == RotationDirection::LEFT)
 	{
 		transform.SetAngle(transform.GetAngle() + glm::radians(3.0f));
-		//transform.Rotate(3.0f);
 	}
 
 
 	if (rotDir == RotationDirection::RIGHT)
 	{
 		transform.SetAngle(transform.GetAngle() - glm::radians(3.0f));
-		//transform.Rotate(-3.0f);
 	}
 
 
@@ -104,7 +102,7 @@ void JN_Player::Update()
 
 void JN_Player::Render()
 {
-	sprite.Render(shaderProgram, glm::value_ptr(transform.Multiply()));
+	//sprite.Render(shaderProgram, glm::value_ptr(transform.Multiply()));
 }
 
 
@@ -112,8 +110,8 @@ void JN_Player::LoadShaders()
 {
 	shaderProgram = glCreateProgram();
 
-	JN_Shader frag = JN_Shader(JN_Shader::ShaderType::Fragment, "Player/PlayerShader.frag");
-	JN_Shader vert = JN_Shader(JN_Shader::ShaderType::Vertex, "Player/PlayerShader.vert");
+	JN_Shader frag = JN_Shader(JN_Shader::ShaderType::Fragment, "Shader.frag");
+	JN_Shader vert = JN_Shader(JN_Shader::ShaderType::Vertex, "Shader.vert");
 
 	glAttachShader(shaderProgram, frag.GetShaderID());
 	glAttachShader(shaderProgram, vert.GetShaderID());

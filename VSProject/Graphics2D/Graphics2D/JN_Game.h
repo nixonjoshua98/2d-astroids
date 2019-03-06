@@ -29,12 +29,13 @@ private:
 	// GL stuff
 	glm::mat4 projectionMatrix;
 	glm::mat4 viewMatrix;
+	glm::mat4 modelMatrix;
 
 
 	/* - - - -  POINTERS - - - - */
 	std::unique_ptr<JN_BubbleController> bubbles = NULL;	// Bubble manager
-	std::shared_ptr<JN_Application> app = NULL;	// Application, stores the window, renderer etc.
-	std::shared_ptr<JN_Player> player = NULL;	// Player object
+	std::shared_ptr<JN_Application> app = NULL;				// Application, stores the window, renderer etc.
+	std::shared_ptr<JN_Player> player = NULL;				// Player object
 
 	void Input();	// Input check
 	void Update();	// Update each object

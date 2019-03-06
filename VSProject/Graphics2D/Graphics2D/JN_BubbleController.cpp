@@ -3,8 +3,7 @@
 #include "JN_Shader.h"
 
 
-
-JN_BubbleController::JN_BubbleController()
+JN_BubbleController::JN_BubbleController(glm::mat4& _projectionMatrix, glm::mat4& _viewMatrix): projectionMatrix(_projectionMatrix), viewMatrix(_viewMatrix)
 {
 	JN_AppendLog("BubbleController created");
 }
@@ -20,12 +19,9 @@ JN_BubbleController::~JN_BubbleController()
 
 
 
-void JN_BubbleController::Init(float aspectRatio)
+void JN_BubbleController::Init()
 {
-	this->aspectRatio = aspectRatio;
-
 	LoadShaders();
-
 }
 
 
@@ -43,7 +39,7 @@ void JN_BubbleController::Render()
 	glUseProgram(shaderProgram);
 
 	for (auto b : bubbles)
-		b->Render(shaderProgram);
+		b->Render(shaderProgram, glm::value_ptr(viewMatrix), glm::value_ptr(projectionMatrix));
 }
 
 
@@ -61,8 +57,8 @@ void JN_BubbleController::LoadShaders()
 {
 	shaderProgram = glCreateProgram();
 
-	JN_Shader frag = JN_Shader(JN_Shader::ShaderType::Fragment, "Generic/GenericShader.frag");
-	JN_Shader vert = JN_Shader(JN_Shader::ShaderType::Vertex, "Generic/GenericShader.vert");
+	JN_Shader frag = JN_Shader(JN_Shader::ShaderType::Fragment, "Shader.frag");
+	JN_Shader vert = JN_Shader(JN_Shader::ShaderType::Vertex, "Shader.vert");
 
 	glAttachShader(shaderProgram, frag.GetShaderID());
 	glAttachShader(shaderProgram, vert.GetShaderID());

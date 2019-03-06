@@ -27,12 +27,12 @@ bool JN_Game::Init(std::shared_ptr<JN_Application> app)
 	this->app = app;
 
 	this->player = std::make_shared<JN_Player>();
-	this->bubbles = std::make_unique<JN_BubbleController>();
+	this->bubbles = std::make_unique<JN_BubbleController>(projectionMatrix, viewMatrix);
 
 	this->player->Init();
-	this->bubbles->Init(app->GetAspectRatio());
+	this->bubbles->Init();
 
-	this->bubbles->AddBubble(10);
+	this->bubbles->AddBubble();
 
 	return true;
 }
