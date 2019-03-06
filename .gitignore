@@ -1,4 +1,4 @@
-./VSProject/vs/
-./VSProject/Graphics2D/Debug/
-./VSProject/Graphics2D/x64/
-./VSProject/Debug/
+/VSProject/Graphics2D/Debug
+/VSProject/Graphics2D/x64
+/VSProject/Graphics2D/Graphics2D/Debug
+/VSProject/Graphics2D/Graphics2D/x64
