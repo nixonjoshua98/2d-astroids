@@ -1,11 +1,12 @@
 #include "JN_Bubble.h"
 #include "JN_Logging.h"
 
+#include <iostream>
 
 
 void JN_Bubble::Init()
 {
-	this->sprite.Init("CirclePattern.png");
+	this->sprite.Init("Bubble.png");
 
 	float angle = glm::radians((float)(rand() % 360));
 
@@ -21,16 +22,20 @@ void JN_Bubble::Update()
 	glm::vec3 pos = transform.GetPosition();
 
 	// LEFT, RIGHT
-	if (pos.x < -1.2f || pos.x > 1.2f)
+	if (pos.x < -1.14f || pos.x > 1.14f)
+	{
 		transform.FlipDirectionX();
+	}
 
 	// UP, DOWN
 	if (pos.y <= (-0.8f) || pos.y >= 0.8f)
+	{
 		transform.FlipDirectionY();
+	}
 
 	transform.Rotate(1.0f);
 
-	transform.Translate(transform.GetDirection() * 0.01f);
+	transform.Translate(transform.GetDirection() * 0.005f);
 }
 
 

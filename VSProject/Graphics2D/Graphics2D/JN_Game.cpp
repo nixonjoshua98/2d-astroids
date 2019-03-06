@@ -32,7 +32,7 @@ bool JN_Game::Init(std::shared_ptr<JN_Application> app)
 	this->player->Init();
 	this->bubbles->Init(app->GetAspectRatio());
 
-	this->bubbles->AddBubble();
+	this->bubbles->AddBubble(10);
 
 	return true;
 }

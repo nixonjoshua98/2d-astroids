@@ -47,10 +47,13 @@ void JN_BubbleController::Render()
 }
 
 
-void JN_BubbleController::AddBubble()
+void JN_BubbleController::AddBubble(int amount)
 {
-	bubbles.push_back(new JN_Bubble());
-	bubbles.back()->Init();
+	for (int i = 0; i < amount; i++)
+	{
+		bubbles.push_back(new JN_Bubble());
+		bubbles.back()->Init();
+	}
 }
 
 

@@ -15,7 +15,7 @@ public:
 	void Init(float aspectRatio);
 	void Update();
 	void Render();
-	void AddBubble();
+	void AddBubble(int amount = 1);
 
 private:
 	std::vector<JN_Bubble*> bubbles;
