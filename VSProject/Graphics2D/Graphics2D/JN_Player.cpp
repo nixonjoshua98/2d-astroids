@@ -2,6 +2,7 @@
 
 #include "JN_Player.h"
 #include "JN_Logging.h"
+#include "JN_Shader.h"
 
 #include <SDL.h>
 #include <iostream>
@@ -12,7 +13,7 @@ JN_Player::JN_Player()
 {
 	JN_AppendLog("Player created");
 
-	transform.scale = glm::scale(transform.scale, glm::vec3(0.2f * 0.75f, 0.2f, 1.0f));
+	transform.Scale(0.1f * 0.75f, 0.1f, 1.0f);
 }
 
 
@@ -27,7 +28,9 @@ JN_Player::~JN_Player()
 
 void JN_Player::Init()
 {
-	circle.Init("CarbonFibre.jpg");
+	sprite.Init("Shuriken.png");
+
+	LoadShaders();
 }
 
 
@@ -78,26 +81,42 @@ void JN_Player::Update()
 	
 	if (rotDir == RotationDirection::LEFT)
 	{
-		transform.angle += glm::radians(3.0f);
-		transform.rotate = glm::rotate(transform.rotate, glm::radians(3.0f), glm::vec3(0, 0, 1));
+		transform.SetAngle(transform.GetAngle() + glm::radians(3.0f));
+		//transform.Rotate(3.0f);
 	}
 
 
 	if (rotDir == RotationDirection::RIGHT)
 	{
-		transform.angle -= glm::radians(3.0f);
-		transform.rotate = glm::rotate(transform.rotate, glm::radians(-3.0f), glm::vec3(0, 0, 1));
+		transform.SetAngle(transform.GetAngle() - glm::radians(3.0f));
+		//transform.Rotate(-3.0f);
 	}
 
 
 	if (movingForward)
 	{
-		transform.Translate(glm::vec3((float)cos(transform.angle) * 0.01f, (float)sin(transform.angle) * 0.01f, 0.0f));
+		transform.Translate(glm::vec3((float)cos(transform.GetAngle()) * 0.01f, (float)sin(transform.GetAngle()) * 0.01f, 0.0f));
 	}
+
+	transform.Rotate(3.0f);
 }
 
 
 void JN_Player::Render()
 {
-	circle.Render(glm::value_ptr(transform.Multiply()));
+	sprite.Render(shaderProgram, glm::value_ptr(transform.Multiply()));
+}
+
+
+void JN_Player::LoadShaders()
+{
+	shaderProgram = glCreateProgram();
+
+	JN_Shader frag = JN_Shader(JN_Shader::ShaderType::Fragment, "Player/PlayerShader.frag");
+	JN_Shader vert = JN_Shader(JN_Shader::ShaderType::Vertex, "Player/PlayerShader.vert");
+
+	glAttachShader(shaderProgram, frag.GetShaderID());
+	glAttachShader(shaderProgram, vert.GetShaderID());
+
+	glLinkProgram(shaderProgram);
 }

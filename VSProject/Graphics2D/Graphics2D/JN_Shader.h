@@ -12,14 +12,14 @@ namespace ShaderConstants
 }
 
 
-class Shader
+class JN_Shader
 {
 public:
 	enum class ShaderType { Fragment, Vertex };
 
-	Shader();									// Default constructor
-	Shader(ShaderType type, std::string path);	// Load the shader code from a text file
-	~Shader();									// Deconstructor
+	JN_Shader();									// Default constructor
+	JN_Shader(ShaderType type, std::string path);	// Load the shader code from a text file
+	~JN_Shader();									// Deconstructor
 
 	/* - - - - GETS - - - -*/
 	GLuint GetShaderID();

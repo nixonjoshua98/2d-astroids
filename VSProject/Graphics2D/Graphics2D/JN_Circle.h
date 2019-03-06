@@ -9,14 +9,11 @@ class JN_Circle
 {
 public:
 	void Init(std::string texFile);
-
-	void Render(const float* valuePtr);
+	void Render(GLuint shaderProgram, const float* uTransformVal);
 
 private:
 	GLuint VBO, VAO, EBO;
 	JN_Texture texture;
-
-	GLuint program;	
 
 	GLfloat vertices[240];
 	GLuint indices[87] = 
@@ -50,10 +47,6 @@ private:
 		0, 27, 28,
 		0, 28, 29
 	};
-
-
-	// Uniforms
-	GLuint uTransform;
 
 	void SetBuffers();
 };

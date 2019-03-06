@@ -8,16 +8,6 @@
 
 void JN_Circle::Init(std::string texFile)
 {
-	program = glCreateProgram();
-
-	Shader frag = Shader(Shader::ShaderType::Fragment, "GenericShader.frag");
-	Shader vert = Shader(Shader::ShaderType::Vertex, "GenericShader.vert");
-
-	glAttachShader(program, frag.GetShaderID());
-	glAttachShader(program, vert.GetShaderID());
-
-	glLinkProgram(program);
-
 	float radius = 1.0f;
 	float offsetX = 0.0f;
 	float offsetY = 0.0f;
@@ -60,8 +50,6 @@ void JN_Circle::Init(std::string texFile)
 
 	texture.Load(texFile);
 
-	uTransform = glGetUniformLocation(program, "uTransform");
-
 	SetBuffers();
 }
 
@@ -98,18 +86,21 @@ void JN_Circle::SetBuffers()
 
 
 
-void JN_Circle::Render(const float* valuePtr)
+void JN_Circle::Render(GLuint shaderProgram, const float* uTransformVal)
 {
-	glUniformMatrix4fv(uTransform, 1, GL_FALSE, valuePtr);
+	// Get uniforms
+	GLuint uTransformLoc = glGetUniformLocation(shaderProgram, "uTransform");
 
-	glUseProgram(program);
+	// Set uniforms
+	glUniformMatrix4fv(uTransformLoc, 1, GL_FALSE, uTransformVal);
 
+	// Binds
 	glBindVertexArray(VAO);
 	glBindTexture(GL_TEXTURE_2D, texture.GetTexture());
 
-	glPointSize(1.0f);
-
+	// Draw
 	glDrawElements(GL_TRIANGLES, 87, GL_UNSIGNED_INT, 0);
 
+	// Unbinds
 	glBindVertexArray(0);
 }

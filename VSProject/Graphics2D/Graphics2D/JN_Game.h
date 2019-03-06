@@ -26,7 +26,6 @@ private:
 	int currentFps = 0;				// Stores the current FPS, got from the framelock
 	bool gameRunning = true;		// Bool flag to run the game loop
 
-
 	// GL stuff
 	glm::mat4 projectionMatrix;
 	glm::mat4 viewMatrix;

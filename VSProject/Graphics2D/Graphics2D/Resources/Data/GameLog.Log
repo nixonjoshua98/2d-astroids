@@ -3,20 +3,18 @@ Game created
 Application init OK
 Player created
 BubbleController created
-Loaded GenericShader.frag
-Loaded GenericShader.vert
-CarbonFibre.jpg loaded OK
+Shuriken.png loaded OK
+Loaded Player/PlayerShader.frag
+Loaded Player/PlayerShader.vert
 Shader destroyed
 Shader destroyed
-Bubble created
-Loaded GenericShader.frag
-Loaded GenericShader.vert
+Loaded Generic/GenericShader.frag
+Loaded Generic/GenericShader.vert
+Shader destroyed
+Shader destroyed
 CirclePattern.png loaded OK
-Shader destroyed
-Shader destroyed
 Game init OK
 Game destroyed
 Player destroyed
 BubbleController destroyed
-Bubble destroyed
 Application destroyed

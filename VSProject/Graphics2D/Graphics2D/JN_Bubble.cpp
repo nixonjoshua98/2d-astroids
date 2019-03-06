@@ -1,66 +1,43 @@
 #include "JN_Bubble.h"
 #include "JN_Logging.h"
 
-#include <iostream>
-
-
-JN_Bubble::~JN_Bubble()
-{
-	JN_AppendLog("Bubble destroyed");
-}
-
-
-
-JN_Bubble::JN_Bubble()
-{
-	JN_AppendLog("Bubble created");
-}
-
 
 
 void JN_Bubble::Init()
 {
+	this->sprite.Init("CirclePattern.png");
 
-	circle.Init("CirclePattern.png");
+	float angle = glm::radians((float)(rand() % 360));
 
-	float angle = 90.0f;//glm::radians((float)(rand() % 360));
-
-	transform.angle = 0.0F;
-	transform.direction = glm::vec3((float)cos(angle), (float)sin(angle), 0.0f);
-	transform.scale = glm::scale(transform.scale, glm::vec3(0.2f * 0.75f, 0.2f, 1.0f));
-	transform.rotate = glm::rotate(transform.rotate, glm::radians(angle), glm::vec3(0, 0, 1));
+	transform.SetDirection((float)cos(angle), (float)sin(angle), 0.0f);
+	transform.Scale(0.2f * 0.75f, 0.2f, 1.0f);
+	transform.Rotate(angle);
 }
 
 
 
-
-void JN_Bubble::Update(float aspectRatio)
+void JN_Bubble::Update()
 {
-	glm::vec3 pos = transform.Position();
+	glm::vec3 pos = transform.GetPosition();
 
-	std::cout << aspectRatio << ", " << pos.x << std::endl;
-
-	// X
+	// LEFT, RIGHT
 	if (pos.x < -1.2f || pos.x > 1.2f)
-	{
-		transform.direction.x = -transform.direction.x;
-	}
+		transform.FlipDirectionX();
 
-	// Y
-	if (pos.y >= 0.8f || pos.y <= (-0.8f))
-	{
-		transform.direction.y = -transform.direction.y;
-	}
+	// UP, DOWN
+	if (pos.y <= (-0.8f) || pos.y >= 0.8f)
+		transform.FlipDirectionY();
 
-	transform.rotate = glm::rotate(transform.rotate, glm::radians(1.0f), glm::vec3(0, 0, 1));
+	transform.Rotate(1.0f);
 
-	transform.Translate(transform.direction * 0.01f);
+	transform.Translate(transform.GetDirection() * 0.01f);
 }
 
 
 
-
-void JN_Bubble::Render()
+void JN_Bubble::Render(GLuint shaderProgram)
 {
-	circle.Render(glm::value_ptr(transform.Multiply()));
+	const float* uTransformVal = glm::value_ptr(transform.Multiply());
+
+	sprite.Render(shaderProgram, uTransformVal);
 }

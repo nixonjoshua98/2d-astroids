@@ -1,7 +1,8 @@
 c:\users\joshua\documents\repos\opengl-2d-game\vsproject\graphics2d\graphics2d\debug\vc141.pdb
 c:\users\joshua\documents\repos\opengl-2d-game\vsproject\graphics2d\graphics2d\debug\vc141.idb
 c:\users\joshua\documents\repos\opengl-2d-game\vsproject\graphics2d\graphics2d\debug\jn_application.obj
-c:\users\joshua\documents\repos\opengl-2d-game\vsproject\graphics2d\graphics2d\debug\jn_bubble.obj
+c:\users\joshua\documents\repos\opengl-2d-game\vsproject\graphics2d\graphics2d\debug\jn_bubble2.obj
+c:\users\joshua\documents\repos\opengl-2d-game\vsproject\graphics2d\graphics2d\debug\jn_bubblecontroller.obj
 c:\users\joshua\documents\repos\opengl-2d-game\vsproject\graphics2d\graphics2d\debug\jn_circle.obj
 c:\users\joshua\documents\repos\opengl-2d-game\vsproject\graphics2d\graphics2d\debug\jn_framelock.obj
 c:\users\joshua\documents\repos\opengl-2d-game\vsproject\graphics2d\graphics2d\debug\jn_game.obj
@@ -10,10 +11,9 @@ c:\users\joshua\documents\repos\opengl-2d-game\vsproject\graphics2d\graphics2d\d
 c:\users\joshua\documents\repos\opengl-2d-game\vsproject\graphics2d\graphics2d\debug\jn_player.obj
 c:\users\joshua\documents\repos\opengl-2d-game\vsproject\graphics2d\graphics2d\debug\jn_shader.obj
 c:\users\joshua\documents\repos\opengl-2d-game\vsproject\graphics2d\graphics2d\debug\jn_texture.obj
-c:\users\joshua\documents\repos\opengl-2d-game\vsproject\graphics2d\graphics2d\debug\jn_transfom.obj
-c:\users\joshua\documents\repos\opengl-2d-game\vsproject\graphics2d\graphics2d\debug\jn_triangle.obj
-c:\users\joshua\documents\repos\opengl-2d-game\vsproject\graphics2d\graphics2d\debug\jn_bubblecontroller.obj
 c:\users\joshua\documents\repos\opengl-2d-game\vsproject\graphics2d\graphics2d\debug\jn_transform.obj
+c:\users\joshua\documents\repos\opengl-2d-game\vsproject\graphics2d\graphics2d\debug\jn_triangle.obj
+c:\users\joshua\documents\repos\opengl-2d-game\vsproject\graphics2d\graphics2d\debug\jn_bubble.obj
 c:\users\joshua\documents\repos\opengl-2d-game\vsproject\graphics2d\debug\graphics2d.exe
 c:\users\joshua\documents\repos\opengl-2d-game\vsproject\graphics2d\debug\graphics2d.ilk
 c:\users\joshua\documents\repos\opengl-2d-game\vsproject\graphics2d\debug\graphics2d.pdb

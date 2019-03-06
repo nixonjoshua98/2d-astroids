@@ -4,6 +4,7 @@
 #include "JN_Bubble.h"
 
 #include <vector>
+#include <GL/glew.h>
 
 class JN_BubbleController
 {
@@ -19,8 +20,12 @@ public:
 private:
 	std::vector<JN_Bubble*> bubbles;
 
+	// GL stuff
+	GLuint shaderProgram;
+
 	float aspectRatio;
 
+	void LoadShaders();
 	void DeleteAllBubbles();
 };
 

@@ -40,6 +40,7 @@
     <ClInclude Include="JN_Circle.h" />
     <ClInclude Include="JN_FrameLock.h" />
     <ClInclude Include="JN_Game.h" />
+    <ClInclude Include="JN_Gameobject.h" />
     <ClInclude Include="JN_Logging.h" />
     <ClInclude Include="JN_Player.h" />
     <ClInclude Include="JN_Shader.h" />

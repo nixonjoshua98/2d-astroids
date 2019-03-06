@@ -1,18 +1,10 @@
 #ifndef JN_PLAYER_H
 #define JN_PLAYER_h
 
-#define GLM_FORCE_RADIANS
+#include "JN_Gameobject.h"
 
-#include "JN_Circle.h"
-#include "JN_Transform.h"
 
-#include <GL/glew.h>
-
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
-
-class JN_Player
+class JN_Player : public JN_Gameobject
 {
 public:
 	JN_Player();
@@ -20,18 +12,20 @@ public:
 
 	enum class RotationDirection {NONE, LEFT, RIGHT};
 
-	void Init();
+	void Init() override;
 	void Input(SDL_Event e);
-	void Update();
+	void Update() override;
 	void Render();
 
-private:
-	JN_Transform transform;
-	JN_Circle circle;
+	void LoadShaders();
 
+private:
 	/* - - - - DIRECTION FLAGS - - - - */
 	bool movingForward = false;
 	RotationDirection rotDir = RotationDirection::NONE;
+
+	/* - - - - GL STUFF - - - -*/
+	GLuint shaderProgram;
 
 	GLfloat vertices[24] = {
 		//  X,		 Y,		 Z,		 R,		 G,	 	 B,		Tx,		Ty,

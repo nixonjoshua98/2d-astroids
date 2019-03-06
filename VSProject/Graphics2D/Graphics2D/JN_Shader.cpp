@@ -9,14 +9,14 @@ extern const std::string ShaderConstants::SHADER_DIR = "./Resources/Shaders/";
 
 
 // Default constructor
-Shader::Shader()
+JN_Shader::JN_Shader()
 {
 
 }
 
 
 // Constructor overload
-Shader::Shader(ShaderType type, std::string path)
+JN_Shader::JN_Shader(ShaderType type, std::string path)
 {
 	this->type = type;
 	
@@ -25,7 +25,7 @@ Shader::Shader(ShaderType type, std::string path)
 }
 
 
-Shader::~Shader()
+JN_Shader::~JN_Shader()
 {
 	glDeleteShader(shaderID);
 
@@ -34,7 +34,7 @@ Shader::~Shader()
 
 
 // Load the shader file into memory
-void Shader::Load(std::string path)
+void JN_Shader::Load(std::string path)
 {
 	std::ifstream inFile(ShaderConstants::SHADER_DIR + path);
 
@@ -52,7 +52,7 @@ void Shader::Load(std::string path)
 
 
 // Compile the shader program
-void Shader::Compile()
+void JN_Shader::Compile()
 {
 	switch (type)
 	{
@@ -79,7 +79,7 @@ void Shader::Compile()
 }
 
 
-GLuint Shader::GetShaderID()
+GLuint JN_Shader::GetShaderID()
 {
 	return shaderID;
 }
