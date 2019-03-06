@@ -36,13 +36,18 @@
     <ClCompile Include="JN_Texture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="JN_Transfom.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="JN_Circle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="JN_Bubble.cpp" />
+    <ClCompile Include="JN_Transform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="JN_Bubble.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="JN_BubbleController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="JN_Logging.h">
@@ -76,6 +81,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="JN_Bubble.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="JN_BubbleController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -9,6 +9,9 @@
 JN_Game::JN_Game()
 {
 	JN_AppendLog("Game created");
+
+	projectionMatrix = glm::ortho(0.0f, 4.0f, 0.0f, 3.0f, -1.0f, 100.0f);
+	viewMatrix = glm::mat4(1.0f);
 }
 
 
@@ -24,13 +27,12 @@ bool JN_Game::Init(std::shared_ptr<JN_Application> app)
 	this->app = app;
 
 	this->player = std::make_shared<JN_Player>();
+	this->bubbles = std::make_unique<JN_BubbleController>();
 
 	this->player->Init();
+	this->bubbles->Init(app->GetAspectRatio());
 
-	for (int i = 0; i < 50; i++)
-	{
-		bubbles.push_back(new JN_Bubble());
-	}
+	this->bubbles->AddBubble();
 
 	return true;
 }
@@ -41,7 +43,7 @@ void JN_Game::Run()
 {
 	while (gameRunning)
 	{
-		auto frameLock = JN_FrameLock(60, currentFps);
+		auto frameLock = JN_FrameLock(FRAMES_PER_SECOND, currentFps);
 
 		Input();
 		Update();
@@ -85,6 +87,10 @@ void JN_Game::Input()
 				player->Input(e);
 				break;
 			}
+
+			// Other events
+		default:
+			break;
 		}
 	}
 }
@@ -94,9 +100,7 @@ void JN_Game::Input()
 void JN_Game::Update()
 {
 	player->Update();
-
-	for (auto b : bubbles)
-		b->Update();
+	bubbles->Update();
 }
 
 
@@ -108,9 +112,7 @@ void JN_Game::Render()
 
 	// ... Render stuff here
 	player->Render();
-
-	for (auto b : bubbles)
-		b->Render();
+	bubbles->Render();
 
 	SDL_GL_SwapWindow(app->GetWindow());	// Flip the buffer
 }

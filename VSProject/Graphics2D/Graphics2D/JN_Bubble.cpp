@@ -11,36 +11,43 @@ JN_Bubble::~JN_Bubble()
 
 
 
-
 JN_Bubble::JN_Bubble()
 {
 	JN_AppendLog("Bubble created");
+}
 
-	circle.Init();
 
-	float x = glm::radians((float)(rand() % 360));
+
+void JN_Bubble::Init()
+{
+
+	circle.Init("CirclePattern.png");
+
+	float angle = 90.0f;//glm::radians((float)(rand() % 360));
 
 	transform.angle = 0.0F;
-	transform.direction = glm::vec3((float)cos(x), (float)sin(x), 0.0f);
+	transform.direction = glm::vec3((float)cos(angle), (float)sin(angle), 0.0f);
 	transform.scale = glm::scale(transform.scale, glm::vec3(0.2f * 0.75f, 0.2f, 1.0f));
-	transform.rotate = glm::rotate(transform.rotate, glm::radians(x), glm::vec3(0, 0, 1));
+	transform.rotate = glm::rotate(transform.rotate, glm::radians(angle), glm::vec3(0, 0, 1));
 }
 
 
 
 
-void JN_Bubble::Update()
+void JN_Bubble::Update(float aspectRatio)
 {
 	glm::vec3 pos = transform.Position();
 
+	std::cout << aspectRatio << ", " << pos.x << std::endl;
+
 	// X
-	if (pos.x >= ((float)800 / 600) - 0.1f || pos.x <= -((float)800 / 600) + 0.1f)
+	if (pos.x < -1.2f || pos.x > 1.2f)
 	{
 		transform.direction.x = -transform.direction.x;
 	}
 
 	// Y
-	if (pos.y >= 1.0f - 0.1f || pos.y <= -1.0f + 0.1f)
+	if (pos.y >= 0.8f || pos.y <= (-0.8f))
 	{
 		transform.direction.y = -transform.direction.y;
 	}

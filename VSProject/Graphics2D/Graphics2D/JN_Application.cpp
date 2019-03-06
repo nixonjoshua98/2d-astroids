@@ -115,6 +115,11 @@ SDL_Window* JN_Application::GetWindow()
 	return window;
 }
 
+float JN_Application::GetAspectRatio()
+{
+	return aspectRatio;
+}
+
 
 // NOTE: This only works if screen was full-screen
 void JN_Application::SetWindowPosition()
@@ -128,4 +133,8 @@ void JN_Application::SetWindowPosition()
 	SDL_SetWindowPosition(window, (w / 2) / 2, (h / 2) / 2);	// Center the window
 
 	SDL_SetWindowMinimumSize(window, w / 2, h / 2);
+
+	SDL_GetWindowSize(window, &w, &h);	// Get current width, height
+
+	aspectRatio = (float)w / (float)h;
 };

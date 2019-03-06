@@ -8,7 +8,7 @@
 class JN_Circle
 {
 public:
-	void Init();
+	void Init(std::string texFile);
 
 	void Render(const float* valuePtr);
 
@@ -51,6 +51,8 @@ private:
 		0, 28, 29
 	};
 
+
+	// Uniforms
 	GLuint uTransform;
 
 	void SetBuffers();

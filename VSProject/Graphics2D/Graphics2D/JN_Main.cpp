@@ -6,6 +6,7 @@
 
 #include <SDL.h>
 #include <memory>
+#include <ctime>
 
 
 /*
@@ -54,6 +55,7 @@ int main(int argc, char *argv[])
 	// Smart pointers...
 	std::shared_ptr<JN_Application> app = std::make_shared<JN_Application>();
 	std::shared_ptr<JN_Game> game = std::make_shared<JN_Game>();
+
 
 	if (app->Init()) // Init sub-systems
 	{

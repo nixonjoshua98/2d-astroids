@@ -18,7 +18,7 @@ public:
 	~JN_Bubble();
 
 	void Init();
-	void Update();
+	void Update(float aspectRatio);
 	void Render();
 
 private:

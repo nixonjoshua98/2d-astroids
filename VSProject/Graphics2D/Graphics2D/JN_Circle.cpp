@@ -1,8 +1,12 @@
+
+
 #include "JN_Circle.h"
 #include "JN_Shader.h"
 
+#include <iostream>
 
-void JN_Circle::Init()
+
+void JN_Circle::Init(std::string texFile)
 {
 	program = glCreateProgram();
 
@@ -26,7 +30,7 @@ void JN_Circle::Init()
 	// Colour of origin vertex
 	vertices[3] = 0.0f + offsetX;
 	vertices[4] = 0.0f + offsetY;
-	vertices[5] = 0.1f;
+	vertices[5] = 0.0f;
 
 	// Texture coordinates of centre
 	vertices[6] = 0.5f;
@@ -54,7 +58,7 @@ void JN_Circle::Init()
 
 	}
 
-	texture.Load("Balls/ball12.png");
+	texture.Load(texFile);
 
 	uTransform = glGetUniformLocation(program, "uTransform");
 
@@ -103,7 +107,7 @@ void JN_Circle::Render(const float* valuePtr)
 	glBindVertexArray(VAO);
 	glBindTexture(GL_TEXTURE_2D, texture.GetTexture());
 
-	glPointSize(5.0f);
+	glPointSize(1.0f);
 
 	glDrawElements(GL_TRIANGLES, 87, GL_UNSIGNED_INT, 0);
 

@@ -27,7 +27,7 @@ JN_Player::~JN_Player()
 
 void JN_Player::Init()
 {
-	circle.Init();
+	circle.Init("CarbonFibre.jpg");
 }
 
 
