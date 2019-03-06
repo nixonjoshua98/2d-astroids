@@ -1,4 +1,4 @@
-//#define SDL_MAIN_HANDLED
+#define SDL_MAIN_HANDLED
 
 #include "JN_Application.h"
 #include "JN_Logging.h"
@@ -6,25 +6,56 @@
 
 #include <SDL.h>
 #include <memory>
+#include <ctime>
+
 
 /*
-// // - OpenGL Mathematics - https://glm.g-truc.net/
-#define GLM_FORCE_RADIANS // force glm to use radians
-// // NOTE: must do before including GLM headers
-// // NOTE: GLSL uses radians, so will do the same, for consistency
-#include <glm/glm.hpp>
-#include "windows.h"
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
+	Window
+		Pass:		Window with name, module, number									COMPLETE
+		2.2:		Window move + resize												COMPLETE
+		2.1:		Fullscreen															COMPLETE
+		1st:		Aspect ratio
+		1st+:		Half size of desktop and centered on startup						COMPLETE
+
+	2D Geometry
+		Pass:		Visible geometry for the player and bubbles							COMPLETE
+		2.2:		Correct size background
+		2.1:		Geometry for world boundaries
+		1st:		Player fires a projectile
+		1st+:		Bubbles 'animate' when hit
+
+	Playable Game:
+		Pass:		Player can move/rotate and bubbles can move							COMPLETE
+		2.2:		Bubbles are constrained within playable area
+		2.1:		Bubbles destroyed when hit
+		1st:		Player has 3 lives which are shown onscreen
+		1st+:		Player 'catches' the projectile or another gameplay mechanic
+
+	Colours and Textures:
+		Pass:		Geometry isn't all the same colour
+		2.2:		Player is textured													COMPLETE
+		2.1:		Bubbles and background are textured
+		1st:		Transparency														COMPLETE
+		1st+:		Bubbles/player show Textured destruction
+
+	Shaders:
+		Pass:		Vertex and fragment shader are present								COMPLETE
+		2.2:		Shaders are in own file												COMPLETE
+		2.1:		Variable data is passed as uniform to manipulate textures/geometry	COMPLETE
+		1st:		Random colors for the bubbles created via shaders
+		1st+:		Textures/geometry manipulated by shaders							COMPLETE
 */
 
 int main(int argc, char *argv[])
 {
 	JN_ClearLog();
 
+	srand((int)time(NULL));
+
 	// Smart pointers...
 	std::shared_ptr<JN_Application> app = std::make_shared<JN_Application>();
 	std::shared_ptr<JN_Game> game = std::make_shared<JN_Game>();
+
 
 	if (app->Init()) // Init sub-systems
 	{
@@ -38,7 +69,6 @@ int main(int argc, char *argv[])
 		}
 
 	}
-
 
 	return 0;
 }
