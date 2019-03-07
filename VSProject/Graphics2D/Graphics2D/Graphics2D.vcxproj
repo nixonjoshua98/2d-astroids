@@ -44,7 +44,6 @@
     <ClInclude Include="JN_Logging.h" />
     <ClInclude Include="JN_Player.h" />
     <ClInclude Include="JN_Shader.h" />
-    <ClInclude Include="JN_Square.h" />
     <ClInclude Include="JN_Texture.h" />
     <ClInclude Include="JN_Transform.h" />
     <ClInclude Include="JN_Triangle.h" />
@@ -57,7 +56,7 @@
     <ProjectGuid>{FC49E162-563D-4E4A-B6F1-5EB920162ED6}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>CGP2012M_Graphics</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
     <ProjectName>Graphics2D</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

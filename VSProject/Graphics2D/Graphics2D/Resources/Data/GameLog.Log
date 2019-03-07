@@ -4,19 +4,24 @@ Application init OK
 Player created
 BubbleController created
 Shuriken.png loaded OK
-Loaded Shader.frag
-Loaded Shader.vert
+Loaded Player/PlayerShader.frag
+Loaded Player/PlayerShader.vert
 Shader destroyed
 Shader destroyed
-Loaded Shader.frag
-Loaded Shader.vert
+Loaded Generic/GenericShader.frag
+Loaded Generic/GenericShader.vert
 Shader destroyed
 Shader destroyed
-<<<<<<< HEAD
 Bubble.png loaded OK
-=======
-CirclePattern.png loaded OK
->>>>>>> parent of a1fc75f... Safe revert
+Bubble.png loaded OK
+Bubble.png loaded OK
+Bubble.png loaded OK
+Bubble.png loaded OK
+Bubble.png loaded OK
+Bubble.png loaded OK
+Bubble.png loaded OK
+Bubble.png loaded OK
+Bubble.png loaded OK
 Game init OK
 Game destroyed
 Player destroyed

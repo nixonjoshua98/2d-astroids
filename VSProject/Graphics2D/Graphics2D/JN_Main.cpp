@@ -18,14 +18,14 @@
 		1st+:		Half size of desktop and centered on startup						COMPLETE
 
 	2D Geometry
-		Pass:		Visible geometry for the player and bubbles
+		Pass:		Visible geometry for the player and bubbles							COMPLETE
 		2.2:		Correct size background
 		2.1:		Geometry for world boundaries
 		1st:		Player fires a projectile
 		1st+:		Bubbles 'animate' when hit
 
 	Playable Game:
-		Pass:		Player can move/rotate and bubles can move							
+		Pass:		Player can move/rotate and bubbles can move							COMPLETE
 		2.2:		Bubbles are constrained within playable area
 		2.1:		Bubbles destroyed when hit
 		1st:		Player has 3 lives which are shown onscreen
@@ -33,17 +33,17 @@
 
 	Colours and Textures:
 		Pass:		Geometry isn't all the same colour
-		2.2:		Player is textured
+		2.2:		Player is textured													COMPLETE
 		2.1:		Bubbles and background are textured
-		1st:		Transparency
+		1st:		Transparency														COMPLETE
 		1st+:		Bubbles/player show Textured destruction
 
 	Shaders:
-		Pass:		Vertex and fragment shader are present								
-		2.2:		Shaders are in own file												
-		2.1:		Variable data is passed as uniform to manipulate textures/geometry	
+		Pass:		Vertex and fragment shader are present								COMPLETE
+		2.2:		Shaders are in own file												COMPLETE
+		2.1:		Variable data is passed as uniform to manipulate textures/geometry	COMPLETE
 		1st:		Random colors for the bubbles created via shaders
-		1st+:		Textures/geometry manipulated by shaders
+		1st+:		Textures/geometry manipulated by shaders							COMPLETE
 */
 
 int main(int argc, char *argv[])

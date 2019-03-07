@@ -9,7 +9,7 @@ class JN_Circle
 {
 public:
 	void Init(std::string texFile);
-	void Render(GLuint shaderProgram, const float* uProjectionVal, const float* uViewVal, const float* uModelVal);
+	void Render(GLuint shaderProgram, const float* uTransformVal);
 
 private:
 	GLuint VBO, VAO, EBO;

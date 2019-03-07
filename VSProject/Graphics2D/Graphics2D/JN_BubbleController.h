@@ -9,13 +9,13 @@
 class JN_BubbleController
 {
 public:
-	JN_BubbleController(glm::mat4& _projectionMatrix, glm::mat4& _viewMatrix);
+	JN_BubbleController();
 	~JN_BubbleController();
 
-	void Init();
+	void Init(float aspectRatio);
 	void Update();
 	void Render();
-	void AddBubble();
+	void AddBubble(int amount = 1);
 
 private:
 	std::vector<JN_Bubble*> bubbles;
@@ -23,8 +23,7 @@ private:
 	// GL stuff
 	GLuint shaderProgram;
 
-	glm::mat4& projectionMatrix;
-	glm::mat4& viewMatrix;
+	float aspectRatio;
 
 	void LoadShaders();
 	void DeleteAllBubbles();

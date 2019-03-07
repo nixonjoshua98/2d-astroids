@@ -36,8 +36,9 @@ void JN_Circle::Init(std::string texFile)
 		vertices[i + 2] = 0.0f;
 
 		// Colour information
-		for (int j = 3; j <= 5; j++)
-			vertices[i + j] = 0.0f;
+		vertices[i + 3] = 0.8f;
+		vertices[i + 4] = 0.0f;
+		vertices[i + 5] = 0.4f;
 
 		// Texture coordinate information
 		vertices[i + 6] = ((radius * cos(angle)) * 0.5f) + 0.5f;
@@ -85,19 +86,13 @@ void JN_Circle::SetBuffers()
 
 
 
-void JN_Circle::Render(GLuint shaderProgram, const float* uProjectionVal, const float* uViewVal, const float* uModelVal)
+void JN_Circle::Render(GLuint shaderProgram, const float* uTransformVal)
 {
 	// Get uniforms
-	//GLuint uTransform = glGetUniformLocation(shaderProgram, "uTransform");
-	GLuint uProjection = glGetUniformLocation(shaderProgram, "uProjection");
-	GLuint uModel = glGetUniformLocation(shaderProgram, "uModel");
-	GLuint uView = glGetUniformLocation(shaderProgram, "uView");
+	GLuint uTransformLoc = glGetUniformLocation(shaderProgram, "uTransform");
 
 	// Set uniforms
-	//glUniformMatrix4fv(uTransform, 1, GL_FALSE, uTransformVal);
-	//glUniformMatrix4fv(uProjection, 1, GL_FALSE, glm::value_ptr(projectionMatrix));
-	glUniformMatrix4fv(uModel, 1, GL_FALSE, uModelVal);
-	//glUniformMatrix4fv(uView, 1, GL_FALSE, glm::value_ptr(viewMatrix));
+	glUniformMatrix4fv(uTransformLoc, 1, GL_FALSE, uTransformVal);
 
 	// Binds
 	glBindVertexArray(VAO);
