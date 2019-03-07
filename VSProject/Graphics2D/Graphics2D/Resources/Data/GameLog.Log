@@ -12,7 +12,11 @@ Loaded Shader.frag
 Loaded Shader.vert
 Shader destroyed
 Shader destroyed
+<<<<<<< HEAD
 Bubble.png loaded OK
+=======
+CirclePattern.png loaded OK
+>>>>>>> parent of a1fc75f... Safe revert
 Game init OK
 Game destroyed
 Player destroyed

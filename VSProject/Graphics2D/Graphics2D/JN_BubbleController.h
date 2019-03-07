@@ -15,7 +15,7 @@ public:
 	void Init();
 	void Update();
 	void Render();
-	void AddBubble(int amount = 1);
+	void AddBubble();
 
 private:
 	std::vector<JN_Bubble*> bubbles;
