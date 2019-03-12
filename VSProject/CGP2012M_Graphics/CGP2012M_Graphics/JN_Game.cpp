@@ -2,7 +2,6 @@
 #include "JN_FrameLock.h"
 
 
-
 JN_Game::JN_Game()
 {
 }
@@ -30,8 +29,6 @@ bool JN_Game::Init(std::shared_ptr<JN_Application> app)
 	background->Init();
 	bubbles->Init(app->boundaries, viewMatrix, projectionMatrix);
 
-	bubbles->AddBubble(1);
-
 	return true;
 }
 
@@ -40,7 +37,7 @@ void JN_Game::Run()
 	int f;
 	while (gameRunning)
 	{
-		auto lock = JN_FrameLock(1000, f);
+		auto lock = JN_FrameLock(1000, f); // Lol
 
 		Input();
 		Update();
@@ -90,8 +87,14 @@ void JN_Game::Input()
 
 void JN_Game::Update()
 {
+	if (_++ == 3000)
+	{
+		bubbles->AddBubble();
+	}
+
+
 	bubbles->Update();
-	player->Update();
+	player->Update(bubbles->GetBubbles());
 
 	background->SetUniforms(viewMatrix, projectionMatrix);
 	player->SetUniforms(projectionMatrix, viewMatrix);

@@ -7,6 +7,8 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include <math.h>
+
 struct JN_Transform
 {
 public:
@@ -21,6 +23,13 @@ public:
 	/* GETS */
 	glm::vec3 GetDirection() { return direction; }
 	glm::vec3 GetPosition() { return glm::vec3(translate[3][0] * ((float)800 / 600), translate[3][1], translate[3][2]); }
+
+	float GetMagnitude()
+	{
+		auto pos = GetPosition();
+
+		return sqrtf((float)pow(pos.x, 2) + (float)pow(pos.y, 2));
+	}
 
 	/* SETS */
 	void SetDirection(float x, float y, float z) { direction = glm::vec3(x, y, z); }

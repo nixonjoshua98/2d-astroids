@@ -30,6 +30,7 @@
     <ClInclude Include="JN_Game.h" />
     <ClInclude Include="JN_Logging.h" />
     <ClInclude Include="JN_Player.h" />
+    <ClInclude Include="JN_Projectile.h" />
     <ClInclude Include="JN_ScreenBoundaries.h" />
     <ClInclude Include="JN_Shader.h" />
     <ClInclude Include="JN_Square.h" />
@@ -50,6 +51,7 @@
     <ClCompile Include="JN_Game.cpp" />
     <ClCompile Include="JN_Logging.cpp" />
     <ClCompile Include="JN_Player.cpp" />
+    <ClCompile Include="JN_Projectile.cpp" />
     <ClCompile Include="JN_Shader.cpp" />
     <ClCompile Include="JN_Square.cpp" />
     <ClCompile Include="JN_Texture.cpp" />

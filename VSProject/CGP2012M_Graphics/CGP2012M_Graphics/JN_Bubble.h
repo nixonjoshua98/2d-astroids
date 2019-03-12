@@ -22,12 +22,16 @@ public:
 	void Update();
 	void SetUniforms(glm::mat4 projectionMatrix, glm::mat4 viewMatrix);
 
+	JN_Transform transform;
+
 private:
+	glm::vec2 offset;
+
 	float speed;
 
 	JN_ScreenBoundaries boundaries;
 	JN_Circle circle;
-	JN_Transform transform;
+	//JN_Transform transform;
 };
 
 #endif // !JN_BUBBLE_H

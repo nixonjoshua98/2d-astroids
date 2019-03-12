@@ -18,6 +18,8 @@ public:
 	void Update();
 	void Render();
 
+	std::vector<JN_Bubble*> GetBubbles() { return bubbles; }
+
 private:
 	std::vector<JN_Bubble*> bubbles;
 

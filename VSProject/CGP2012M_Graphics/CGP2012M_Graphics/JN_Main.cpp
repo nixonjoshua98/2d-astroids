@@ -10,14 +10,14 @@ Window
 Pass:		Window with name, module, number									COMPLETE
 2.2:		Window move + resize												COMPLETE
 2.1:		Fullscreen															COMPLETE
-1st:		Aspect ratio
+1st:		Aspect ratio														COMPLETE
 1st+:		Half size of desktop and centered on startup						COMPLETE
 
 2D Geometry
 Pass:		Visible geometry for the player and bubbles							COMPLETE
 2.2:		Correct size background												COMPLETE
 2.1:		Geometry for world boundaries										COMPLETE
-1st:		Player fires a projectile
+1st:		Player fires a projectile											COMPLETE
 1st+:		Bubbles 'animate' when hit
 
 Playable Game:

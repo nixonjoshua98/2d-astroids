@@ -38,8 +38,6 @@ void JN_Background::Render()
 
 void JN_Background::SetUniforms(glm::mat4 viewMatrix, glm::mat4 projectionMatrix)
 {
-	lightCol.z += 0.001f;
-
 	auto shaderProgram = square.GetShaderProgram();
 
 	glUseProgram(shaderProgram);
