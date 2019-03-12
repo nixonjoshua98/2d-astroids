@@ -5,11 +5,6 @@
 #include "JN_Logging.h"
 #include "JN_Application.h" 
 
-#include <cstdio>
-#include <cstdlib>
-#include <iostream>
-
-
 
 
 // Default constructor
@@ -38,8 +33,6 @@ JN_Application::~JN_Application()
 // Init the relevant sub-systems and create the initial widgets
 bool JN_Application::Init()
 {
-	std::cout << "Application.init()\n";
-
 	// SDL MUST be init first
 	return InitSDL() && InitGL();
 }
@@ -84,10 +77,7 @@ bool JN_Application::InitGL()
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	if (glewInit() != GLEW_OK)
-		return false;	
-
-	return true;
+	return glewInit() == GLEW_OK;
 }
 
 
@@ -150,8 +140,6 @@ void JN_Application::SetWindowPosition()
 	SDL_SetWindowSize(window, w / 2, h / 2);					// Set the new geometry
 	SDL_SetWindowFullscreen(window, 0);							// Disable full screen
 	SDL_SetWindowPosition(window, (w / 2) / 2, (h / 2) / 2);	// Center the window
-
-	//SDL_SetWindowMinimumSize(window, w / 2, h / 2);
 
 	SDL_GetWindowSize(window, &w, &h);	// Get current width, height
 

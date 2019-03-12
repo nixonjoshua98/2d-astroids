@@ -17,6 +17,14 @@ public:
 	glm::mat4 translate = glm::mat4(1.0f);
 	glm::mat4 rotate = glm::mat4(1.0f);
 	glm::mat4 scale = glm::mat4(1.0f);
+
+	/* GETS */
+	glm::vec3 GetDirection() { return direction; }
+	glm::vec3 GetPosition() { return glm::vec3(translate[3][0] * ((float)800 / 600), translate[3][1], translate[3][2]); }
+
+	/* SETS */
+	void SetDirection(float x, float y, float z) { direction = glm::vec3(x, y, z); }
+
 };
 
 #endif // !JN_TRANSFORM_H

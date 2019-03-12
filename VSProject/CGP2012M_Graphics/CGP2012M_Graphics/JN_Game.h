@@ -11,8 +11,10 @@
 
 #include "JN_Application.h"
 #include "JN_Player.h"
-#include "JN_Bubble.h"
+#include "JN_BubbleController.h"
 #include "JN_Background.h"
+
+#include "Text.h"
 
 class JN_Game
 {
@@ -31,9 +33,10 @@ private:
 
 	std::shared_ptr<JN_Application> app;
 	std::unique_ptr<JN_Player> player;
+	std::unique_ptr<JN_BubbleController> bubbles;
 	std::unique_ptr<JN_Background> background;
 
-	JN_Bubble* bubble;
+	Text text;
 
 	void Input();
 	void Update();

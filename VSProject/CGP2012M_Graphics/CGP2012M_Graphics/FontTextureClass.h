@@ -35,7 +35,7 @@ public:
 		this->setBuffers();
 	}
 
-	
+
 	/**
 	* Sets the buffer data for this texture.
 	*/

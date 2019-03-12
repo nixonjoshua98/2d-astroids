@@ -20,13 +20,13 @@ public:
 	GLuint GetShaderProgram() { return shaderProgram; }
 
 private:
-	JN_Texture texture;
+	static JN_Texture texture;
 
 	GLuint shaderProgram;
 	GLuint VBO, VAO, EBO;
 	GLfloat vertices[240];
 	GLuint indices[87] = {
-		0, 1, 2,
+		0, 1, 2,\
 		0, 2, 3,
 		0, 3, 4,
 		0, 4, 5,

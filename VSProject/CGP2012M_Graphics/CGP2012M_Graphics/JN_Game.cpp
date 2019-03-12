@@ -1,4 +1,5 @@
 #include "JN_Game.h"
+#include "JN_FrameLock.h"
 
 
 
@@ -13,26 +14,34 @@ JN_Game::~JN_Game()
 
 bool JN_Game::Init(std::shared_ptr<JN_Application> app)
 {
+	// Params
 	this->app = app;
 
+	// Smarts
 	player = std::make_unique<JN_Player>();
 	background = std::make_unique<JN_Background>();
+	bubbles = std::make_unique<JN_BubbleController>();
 
+	// Constructs
+	text = Text("..//..//assets//fonts//cour.ttf");
+
+	// Inits
 	player->Init();
 	background->Init();
+	bubbles->Init(app->boundaries, viewMatrix, projectionMatrix);
 
-	bubble = new JN_Bubble();
-
-	bubble->Init(0.2f, 0.0f, 0.0f, app->boundaries);
+	bubbles->AddBubble(1);
 
 	return true;
-
 }
 
 void JN_Game::Run()
 {
+	int f;
 	while (gameRunning)
 	{
+		auto lock = JN_FrameLock(1000, f);
+
 		Input();
 		Update();
 		Render();
@@ -78,13 +87,16 @@ void JN_Game::Input()
 	}
 }
 
+
 void JN_Game::Update()
 {
-	bubble->Update();
+	bubbles->Update();
+	player->Update();
 
 	background->SetUniforms(viewMatrix, projectionMatrix);
 	player->SetUniforms(projectionMatrix, viewMatrix);
-	bubble->SetUniforms(projectionMatrix, viewMatrix);
+
+	//text.setText("Text", 255, 255, 255);
 }
 
 void JN_Game::Render()
@@ -93,8 +105,9 @@ void JN_Game::Render()
 
 	background->Render();
 	player->Render();
-	bubble->Render();
+	bubbles->Render();
+
+	//text.render();
 
 	SDL_GL_SwapWindow(app->GetWindow());
-
 }

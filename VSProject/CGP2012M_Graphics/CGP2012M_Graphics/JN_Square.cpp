@@ -23,10 +23,9 @@ void JN_Square::Init(std::string texFile, std::string vertexShaderFile, std::str
 	glAttachShader(shaderProgram, fShader.GetShaderID());
 	glLinkProgram(shaderProgram);
 
-	texture.load(texFile.c_str());
+	texture.Load(texFile.c_str());
 
 	SetBuffers();
-	texture.setBuffers();
 }
 
 
@@ -37,7 +36,7 @@ void JN_Square::Render()
 
 	// Binds
 	glBindVertexArray(VAO);
-	glBindTexture(GL_TEXTURE_2D, texture.texture);
+	glBindTexture(GL_TEXTURE_2D, texture.GetTexture());
 
 	// Draw
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);

@@ -5,9 +5,11 @@
 
 
 
+JN_Texture JN_Circle::texture = JN_Texture();
+
+
 JN_Circle::JN_Circle()
 {
-
 }
 
 
@@ -21,7 +23,7 @@ JN_Circle::~JN_Circle()
 
 void JN_Circle::Init(float radius, float offsetX, float offsetY)
 {
-	std::string texFile = "..//..//Assets//Textures//bubble.png";
+	std::string texFile = "..//..//Assets//Textures//Circle.png";
 	std::string vertexShaderFile = "..//..//Assets//Shaders//shader_vColour_Projection.vert";
 	std::string fragmentShaderFile = "..//..//Assets//Shaders//shader_vColour_Projection.frag";
 
@@ -46,9 +48,9 @@ void JN_Circle::Init(float radius, float offsetX, float offsetY)
 		vertices[i + 1] = (radius * sin(angle)) + offsetY;
 		vertices[i + 2] = 0.0f;
 
-		vertices[i + 3] = 0.8f;
-		vertices[i + 4] = 0.0f;
-		vertices[i + 5] = 0.4f;
+		vertices[i + 3] = 1.0f;
+		vertices[i + 4] = 1.0f;
+		vertices[i + 5] = 1.0f;
 
 		vertices[i + 6] = ((radius * cos(angle))*2.5f) + 0.5f;
 		vertices[i + 7] = ((radius * sin(angle))*2.5f) + 0.5f;
@@ -67,8 +69,8 @@ void JN_Circle::Init(float radius, float offsetX, float offsetY)
 	glLinkProgram(shaderProgram);
 
 	SetBuffers();
-
-	texture.Load(texFile.c_str());
+	
+	JN_Circle::texture.Load(texFile.c_str());
 }
 
 
@@ -103,9 +105,9 @@ void JN_Circle::Render()
 	glUseProgram(shaderProgram);
 
 	glBindVertexArray(VAO);
-	glBindTexture(GL_TEXTURE_2D, texture.GetTexture());
+	glBindTexture(GL_TEXTURE_2D, JN_Circle::texture.GetTexture());
 
-	glPointSize(5.0f);
+	glPointSize(1.0f);
 
 	glDrawElements(GL_TRIANGLES, 87, GL_UNSIGNED_INT, 0);
 

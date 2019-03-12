@@ -4,7 +4,7 @@
 #include <GL/glew.h>
 #include <string>
 
-#include "TextureClass.h"
+#include "JN_Texture.h"
 
 
 class JN_Square
@@ -21,7 +21,7 @@ public:
 private:
 	GLuint VBO, VAO, EBO;
 	GLuint shaderProgram;
-	Texture texture;
+	JN_Texture texture;
 
 	GLfloat vertices[32] = {
 		 0.1f,  0.1f, 0.0f,		 0.0f, 1.0f, 0.0f,   1.0f, 1.0f,

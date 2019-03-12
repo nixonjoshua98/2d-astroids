@@ -3,7 +3,7 @@
 
 #include <GL/glew.h>
 
-#include "TextureClass.h"
+#include "JN_Texture.h"
 
 
 class JN_Triangle
@@ -20,7 +20,7 @@ public:
 private:
 	GLuint VBO, VAO;
 	GLuint shaderProgram;
-	Texture texture;
+	JN_Texture texture;
 
 	GLfloat vertices[24] = {
 		-0.5f,  0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 1.0f,

@@ -1,5 +1,5 @@
 #ifndef JN_BUBBLE_H
-#define JN_BBUBLE_H
+#define JN_BUBBLE_H
 
 #define GLM_FORCE_RADIANS
 
@@ -16,8 +16,6 @@ class JN_Bubble
 public:
 	JN_Bubble();
 	~JN_Bubble();
-
-	glm::vec2 vector;
 
 	void Init(float radius, float offsetX, float offsetY, JN_ScreenBoundaries boundaries);
 	void Render();

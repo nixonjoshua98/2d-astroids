@@ -23,7 +23,9 @@
     <ClInclude Include="JN_Application.h" />
     <ClInclude Include="JN_Background.h" />
     <ClInclude Include="JN_Bubble.h" />
+    <ClInclude Include="JN_BubbleController.h" />
     <ClInclude Include="JN_Circle.h" />
+    <ClInclude Include="JN_FontTexture.h" />
     <ClInclude Include="JN_FrameLock.h" />
     <ClInclude Include="JN_Game.h" />
     <ClInclude Include="JN_Logging.h" />
@@ -41,7 +43,9 @@
     <ClCompile Include="JN_Application.cpp" />
     <ClCompile Include="JN_Background.cpp" />
     <ClCompile Include="JN_Bubble.cpp" />
+    <ClCompile Include="JN_BubbleController.cpp" />
     <ClCompile Include="JN_Circle.cpp" />
+    <ClCompile Include="JN_FontTexture.cpp" />
     <ClCompile Include="JN_FrameLock.cpp" />
     <ClCompile Include="JN_Game.cpp" />
     <ClCompile Include="JN_Logging.cpp" />

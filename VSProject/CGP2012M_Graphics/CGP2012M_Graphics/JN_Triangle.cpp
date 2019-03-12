@@ -23,10 +23,9 @@ void JN_Triangle::Init(std::string texFile, std::string vertexShaderFile, std::s
 	glAttachShader(shaderProgram, fShader.GetShaderID());
 	glLinkProgram(shaderProgram);
 
-	texture.load(texFile.c_str());
+	texture.Load(texFile.c_str());
 
 	SetBuffers();
-	texture.setBuffers();
 }
 
 
@@ -36,7 +35,7 @@ void JN_Triangle::Render()
 	glUseProgram(shaderProgram);
 
 	// Binds
-	glBindTexture(GL_TEXTURE_2D, texture.texture);
+	glBindTexture(GL_TEXTURE_2D, texture.GetTexture());
 	glBindVertexArray(VAO);
 
 	// Draw

@@ -16,6 +16,8 @@ public:
 	GLuint GetTexture();
 
 protected:
+	bool textureLoaded = false;
+
 	SDL_Surface* surface;			// SDL surface - Temp storage for the texture
 	GLuint texture;					// GL version of the texture
 

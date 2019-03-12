@@ -26,7 +26,7 @@ JN_Shader::~JN_Shader()
 {
 	glDeleteShader(shaderID);
 
-	JN_AppendLog("Shader destroyed");
+	//JN_AppendLog("Shader destroyed");
 }
 
 

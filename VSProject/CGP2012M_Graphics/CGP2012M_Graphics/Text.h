@@ -9,6 +9,7 @@
 //Standard libraries
 #include <array>
 #include <ctime>
+#include <iostream>
 
 //Import opengl and SDL stuff
 #include <GL/glew.h>
@@ -86,6 +87,11 @@ public:
 
 	//set up vertex buffer object
 	GLuint VAO, VBO, EBO;
+
+	Text()
+	{
+
+	}
 
 	/**
 	* Constructs a new text instance
@@ -265,6 +271,7 @@ public:
 		//And set the texture 
 		tex.setTex(surf);
 
+
 		//Then update the plane
 		updateVertices(text);
 	}
@@ -277,8 +284,8 @@ public:
 	{
 		//We wanna enable blending because sdl2_ttf renders with alpha.. use
 		//the default blend function (lerp from src color to background using src alpha)
-		glEnable(GL_BLEND);
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		//glEnable(GL_BLEND);
+		//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 		//We wanna use the shader we compiled earlier
 		glUseProgram(shaderProgram);
@@ -289,13 +296,12 @@ public:
 
 		//Using the vao, draw the plane
 		glBindVertexArray(VAO);
-		glDrawElements(GL_TRIANGLES, 3*2, GL_UNSIGNED_BYTE, 0);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_BYTE, 0);
 		glBindVertexArray(0);
 
 		//And we're not talking about this texture anymore.. so unbind and disable tranparency for
 		//the next render cycle
-		glBindTexture(GL_TEXTURE_2D, 0);
+		//glBindTexture(GL_TEXTURE_2D, 0);
 		//glDisable(GL_BLEND);
-
 	}
 };

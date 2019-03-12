@@ -17,6 +17,8 @@ public:
 	void Render();
 
 private:
+	bool movingForward = false;
+
 	JN_Triangle triangle;
 	JN_Transform transform;
 };

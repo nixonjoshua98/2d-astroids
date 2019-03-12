@@ -23,6 +23,7 @@ public:
 private:
 	JN_Transform transform;
 	JN_Square square;
+	JN_Square borderSquare;
 
 	float ambientIntensity = 1.0f;
 

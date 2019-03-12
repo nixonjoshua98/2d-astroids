@@ -16,21 +16,21 @@ Pass:		Window with name, module, number									COMPLETE
 2D Geometry
 Pass:		Visible geometry for the player and bubbles							COMPLETE
 2.2:		Correct size background												COMPLETE
-2.1:		Geometry for world boundaries
+2.1:		Geometry for world boundaries										COMPLETE
 1st:		Player fires a projectile
 1st+:		Bubbles 'animate' when hit
 
 Playable Game:
 Pass:		Player can move/rotate and bubbles can move							COMPLETE			
-2.2:		Bubbles are constrained within playable area					
+2.2:		Bubbles are constrained within playable area						COMPLETE
 2.1:		Bubbles destroyed when hit
 1st:		Player has 3 lives which are shown onscreen
 1st+:		Player 'catches' the projectile or another gameplay mechanic
 
 Colours and Textures:
-Pass:		Geometry isn't all the same colour
+Pass:		Geometry isn't all the same colour									COMPLETE
 2.2:		Player is textured													COMPLETE
-2.1:		Bubbles and background are textured
+2.1:		Bubbles and background are textured									COMPLETE
 1st:		Transparency														COMPLETE
 1st+:		Bubbles/player show Textured destruction
 
@@ -57,11 +57,6 @@ int main(int argc, char *argv[]) {
 			game->Run();
 		}
 	}
-
-	//Text osText("..//..//assets//fonts//cour.ttf");	
-
-	//osText.setText(temp.c_str(), 255, 255, 255);
-	//osText.render();
 
 	return 0;
 }
