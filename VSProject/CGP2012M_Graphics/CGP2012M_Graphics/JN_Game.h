@@ -25,7 +25,7 @@ public:
 	bool Init(std::shared_ptr<JN_Application> app);
 	void Run();
 
-	int _ = 0;
+	unsigned long int _ = 0;
 
 private:
 	bool gameRunning = true;

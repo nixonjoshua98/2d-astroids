@@ -7,6 +7,7 @@
 #include "JN_Projectile.h"
 
 #include <vector>
+#include <SDL.h>
 
 class JN_Player
 {
@@ -22,7 +23,6 @@ public:
 
 private:
 	bool movingForward = false;
-	bool canShoot = true;
 	bool projectileInPlay = false;
 
 	int livesRemaining = 3;

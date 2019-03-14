@@ -28,7 +28,7 @@ void JN_Projectile::Init()
 
 void JN_Projectile::Update()
 {
-	transform.translate = glm::translate(transform.translate, glm::vec3((float)cos(transform.angle) * 0.003f, (float)sin(transform.angle) * 0.003f, 0.0f));
+	transform.translate = glm::translate(transform.translate, glm::vec3((float)cos(transform.angle) * 0.005f, (float)sin(transform.angle) * 0.005f, 0.0f));
 }
 
 

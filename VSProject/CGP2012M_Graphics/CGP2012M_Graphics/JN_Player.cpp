@@ -43,13 +43,13 @@ void JN_Player::Input(SDL_Event e)
 			break;
 
 		case SDLK_a:
-			transform.angle += glm::radians(10.0f);
-			transform.rotate = glm::rotate(transform.rotate, glm::radians(10.0f), glm::vec3(0, 0, 1));
+			transform.angle += glm::radians(5.0f);
+			transform.rotate = glm::rotate(transform.rotate, glm::radians(5.0f), glm::vec3(0, 0, 1));
 			break;
 
 		case SDLK_d:
-			transform.angle -= glm::radians(10.0f);
-			transform.rotate = glm::rotate(transform.rotate, glm::radians(-10.0f), glm::vec3(0, 0, 1));
+			transform.angle -= glm::radians(5.0f);
+			transform.rotate = glm::rotate(transform.rotate, glm::radians(-5.0f), glm::vec3(0, 0, 1));
 			break;
 
 		case SDLK_SPACE:
@@ -79,9 +79,8 @@ void JN_Player::Input(SDL_Event e)
 
 void JN_Player::Update(std::vector<JN_Bubble*> bubbles)
 {
-
 	if (movingForward)
-		transform.translate = glm::translate(transform.translate, glm::vec3((float)cos(transform.angle) * 0.0003f, (float)sin(transform.angle) * 0.0003f, 0.0f));
+		transform.translate = glm::translate(transform.translate, glm::vec3((float)cos(transform.angle) * 0.001f, (float)sin(transform.angle) * 0.001f, 0.0f));
 
 	if (bubbles.size() > 0)
 	{
@@ -110,8 +109,7 @@ void JN_Player::SetUniforms(glm::mat4 projectionMatrix, glm::mat4 viewMatrix)
 	glUniformMatrix4fv(uModelLoc, 1, GL_FALSE, glm::value_ptr(transform.translate * transform.rotate * transform.scale));
 	glUniformMatrix4fv(uViewLoc, 1, GL_FALSE, glm::value_ptr(viewMatrix));
 
-	if (projectileInPlay)
-		projectile.SetUniforms(projectionMatrix, viewMatrix);
+	projectile.SetUniforms(projectionMatrix, viewMatrix);
 }
 
 
@@ -126,10 +124,7 @@ void JN_Player::Render()
 
 void JN_Player::Fire()
 {
-	if (!canShoot) return;
-
 	projectileInPlay = true;
-	//canShoot = false;
 
 	projectile.SetDirection(transform);
 }

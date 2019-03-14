@@ -29,6 +29,8 @@ bool JN_Game::Init(std::shared_ptr<JN_Application> app)
 	background->Init();
 	bubbles->Init(app->boundaries, viewMatrix, projectionMatrix);
 
+	text.setText("Text", 255, 255, 255);
+
 	return true;
 }
 
@@ -87,7 +89,8 @@ void JN_Game::Input()
 
 void JN_Game::Update()
 {
-	if (_++ == 3000)
+	_++;
+	if (_ % 3000 == 0)
 	{
 		bubbles->AddBubble();
 	}
@@ -98,8 +101,6 @@ void JN_Game::Update()
 
 	background->SetUniforms(viewMatrix, projectionMatrix);
 	player->SetUniforms(projectionMatrix, viewMatrix);
-
-	//text.setText("Text", 255, 255, 255);
 }
 
 void JN_Game::Render()
@@ -110,7 +111,7 @@ void JN_Game::Render()
 	player->Render();
 	bubbles->Render();
 
-	//text.render();
+	text.render();
 
 	SDL_GL_SwapWindow(app->GetWindow());
 }
