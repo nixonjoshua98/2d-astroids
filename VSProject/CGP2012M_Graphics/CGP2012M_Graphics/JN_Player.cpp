@@ -80,13 +80,13 @@ void JN_Player::Input(SDL_Event e)
 void JN_Player::Update(std::vector<JN_Bubble*> bubbles)
 {
 	if (movingForward)
-		transform.translate = glm::translate(transform.translate, glm::vec3((float)cos(transform.angle) * 0.001f, (float)sin(transform.angle) * 0.001f, 0.0f));
+		transform.translate = glm::translate(transform.translate, glm::vec3((float)cos(transform.angle) * 0.017f, (float)sin(transform.angle) * 0.01f, 0.0f));
 
 	if (bubbles.size() > 0)
 	{
 		if (abs(transform.GetMagnitude() - bubbles[0]->transform.GetMagnitude()) <= 0.01f)
 		{
-			//std::cout << "Player Mag: " << transform.GetMagnitude() << " Bubble Mag: " << bubbles[0]->transform.GetMagnitude() << std::endl;
+			std::cout << "Player Mag: " << transform.GetMagnitude() << " Bubble Mag: " << bubbles[0]->transform.GetMagnitude() << std::endl;
 		}
 	}
 

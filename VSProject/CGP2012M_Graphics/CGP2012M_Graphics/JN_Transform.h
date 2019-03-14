@@ -36,4 +36,4 @@ public:
 
 };
 
-#endif // !JN_TRANSFORM_H
+#endif // !JN_TRANSFORM_HW

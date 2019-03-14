@@ -39,7 +39,9 @@ void JN_Game::Run()
 	int f;
 	while (gameRunning)
 	{
-		auto lock = JN_FrameLock(1000, f); // Lol
+		auto lock = JN_FrameLock(60, f); // Lol
+
+		//std::cout << f << std::endl;
 
 		Input();
 		Update();
@@ -90,8 +92,9 @@ void JN_Game::Input()
 void JN_Game::Update()
 {
 	_++;
-	if (_ % 3000 == 0)
+	if (_ % 180 == 0)
 	{
+		std::cout << bubbles->GetTotalBubbles() << std::endl;
 		bubbles->AddBubble();
 	}
 
@@ -108,8 +111,8 @@ void JN_Game::Render()
 	app->ClearContext(1, 1, 1);
 
 	background->Render();
-	player->Render();
 	bubbles->Render();
+	player->Render();
 
 	text.render();
 

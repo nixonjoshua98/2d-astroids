@@ -28,6 +28,9 @@ void JN_Bubble::Init(float radius, float offsetX, float offsetY, JN_ScreenBounda
 
 	transform.translate = glm::translate(transform.translate, glm::vec3(boundaries.cX, boundaries.cY, 0.0f));
 	transform.scale = glm::scale(transform.scale, glm::vec3(1, 1, 0));
+
+	for (int i = 0; i < rand() % 4096; i++)
+		Update();
 }
 
 
@@ -41,7 +44,7 @@ void JN_Bubble::Update()
 {
 	auto pos = transform.GetPosition();
 
-	bool hitRight = pos.x > (5.1f - 0.35f);
+	bool hitRight = pos.x > (5.1f - 0.35f  - this->offset.x);
 	bool hitLeft = pos.x < (boundaries.l + (circle.radius) + 0.35f);
 	bool hitTop = pos.y > (boundaries.t - (circle.radius) - 0.25f);
 	bool hitBottom = pos.y < (boundaries.b + (circle.radius) + 0.25f);
@@ -59,8 +62,7 @@ void JN_Bubble::Update()
 	else if (hitBottom)
 		transform.direction.y *= -1.0f;
 
-
-	transform.translate = glm::translate(transform.translate, transform.direction * 0.001f);
+	transform.translate = glm::translate(transform.translate, transform.direction * 0.010f);
 }
 
 

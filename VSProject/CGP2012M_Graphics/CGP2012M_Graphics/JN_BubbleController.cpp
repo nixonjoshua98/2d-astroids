@@ -34,7 +34,7 @@ void JN_BubbleController::AddBubble(int i)
 
 	float pairs[4][2] = { {-0.65, 0.5f}, {0.65f, 0.5f}, {0.65f, -0.5f}, {-0.65f, -0.5f} };
 	
-	int index = rand() % 1;
+	int index = rand() % 4;
 
 	for (int j = 0; j < i; j++)
 	{
