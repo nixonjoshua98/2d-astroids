@@ -23,9 +23,9 @@ Pass:		Visible geometry for the player and bubbles							COMPLETE
 Playable Game:
 Pass:		Player can move/rotate and bubbles can move							COMPLETE			
 2.2:		Bubbles are constrained within playable area						COMPLETE
-2.1:		Bubbles destroyed when hit
-1st:		Player has 3 lives which are shown onscreen
-1st+:		Player 'catches' the projectile or another gameplay mechanic
+2.1:		Bubbles destroyed when hit											COMPLETE
+1st:		Player has 3 lives which are shown onscreen							COMPLETE
+1st+:		Player 'catches' the projectile or another gameplay mechanic		COMPLETE
 
 Colours and Textures:
 Pass:		Geometry isn't all the same colour									COMPLETE

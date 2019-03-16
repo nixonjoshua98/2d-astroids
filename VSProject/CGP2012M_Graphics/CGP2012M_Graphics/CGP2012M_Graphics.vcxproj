@@ -19,15 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FontTextureClass.h" />
     <ClInclude Include="JN_Application.h" />
     <ClInclude Include="JN_Background.h" />
     <ClInclude Include="JN_Bubble.h" />
     <ClInclude Include="JN_BubbleController.h" />
     <ClInclude Include="JN_Circle.h" />
-    <ClInclude Include="JN_FontTexture.h" />
     <ClInclude Include="JN_FrameLock.h" />
     <ClInclude Include="JN_Game.h" />
+    <ClInclude Include="JN_ImageDisplay.h" />
     <ClInclude Include="JN_Logging.h" />
     <ClInclude Include="JN_Player.h" />
     <ClInclude Include="JN_Projectile.h" />
@@ -37,8 +36,6 @@
     <ClInclude Include="JN_Texture.h" />
     <ClInclude Include="JN_Transform.h" />
     <ClInclude Include="JN_Triangle.h" />
-    <ClInclude Include="Text.h" />
-    <ClInclude Include="TextureClass.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JN_Application.cpp" />
@@ -46,9 +43,9 @@
     <ClCompile Include="JN_Bubble.cpp" />
     <ClCompile Include="JN_BubbleController.cpp" />
     <ClCompile Include="JN_Circle.cpp" />
-    <ClCompile Include="JN_FontTexture.cpp" />
     <ClCompile Include="JN_FrameLock.cpp" />
     <ClCompile Include="JN_Game.cpp" />
+    <ClCompile Include="JN_ImageDisplay.cpp" />
     <ClCompile Include="JN_Logging.cpp" />
     <ClCompile Include="JN_Player.cpp" />
     <ClCompile Include="JN_Projectile.cpp" />

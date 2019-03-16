@@ -29,6 +29,8 @@ void JN_Bubble::Init(float radius, float offsetX, float offsetY, JN_ScreenBounda
 	transform.translate = glm::translate(transform.translate, glm::vec3(boundaries.cX, boundaries.cY, 0.0f));
 	transform.scale = glm::scale(transform.scale, glm::vec3(1, 1, 0));
 
+
+	// hacky solution to random bubble position
 	for (int i = 0; i < rand() % 4096; i++)
 		Update();
 }

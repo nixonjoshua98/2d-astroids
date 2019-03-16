@@ -16,7 +16,10 @@ JN_BubbleController::~JN_BubbleController()
 	JN_AppendLog("Bubble controller destroyed");
 
 	for (auto b : bubbles)
-		delete b;
+	{
+		if (b)
+			delete b;
+	}
 	bubbles.clear();
 }
 
@@ -46,16 +49,27 @@ void JN_BubbleController::AddBubble(int i)
 }
 
 
-void JN_BubbleController::Update()
+int JN_BubbleController::Update(glm::vec3 plr)
 {
+	int collisions = 0;
+
 	for (int i = 0; i < bubbles.size(); )
 	{
+		if (bubbles[i]->transform.DistanceBetween(plr) <= 0.2f) // 0.2f = Radius
+		{
+			collisions++;
+			bubbles.erase(bubbles.begin() + i);
+			continue;
+		}
+
 		if (bubbles[i])
 		{
 			bubbles[i]->Update();
 			bubbles[i++]->SetUniforms(projectionMatrix, viewMatrix);
 		}
 	}
+
+	return collisions;
 }
 
 

@@ -31,6 +31,13 @@ public:
 		return sqrtf((float)pow(pos.x, 2) + (float)pow(pos.y, 2));
 	}
 
+	float DistanceBetween(glm::vec3 collider)
+	{
+		auto pos = GetPosition();
+
+		return sqrtf(pow(pos.x - collider.x, 2) + pow(pos.y - collider.y, 2));
+	}
+
 	/* SETS */
 	void SetDirection(float x, float y, float z) { direction = glm::vec3(x, y, z); }
 

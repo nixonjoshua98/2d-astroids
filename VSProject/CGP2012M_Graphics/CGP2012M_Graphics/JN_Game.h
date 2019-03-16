@@ -4,6 +4,7 @@
 #define GLM_FORCE_RADIANS
 
 #include <memory>
+#include <iostream>
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -12,9 +13,8 @@
 #include "JN_Application.h"
 #include "JN_Player.h"
 #include "JN_BubbleController.h"
+#include "JN_ImageDisplay.h"
 #include "JN_Background.h"
-
-#include "Text.h"
 
 class JN_Game
 {
@@ -34,11 +34,10 @@ private:
 	glm::mat4 projectionMatrix = glm::ortho(0.0f, 4.0f, 0.0f, 3.0f, -1.0f, 100.0f);
 
 	std::shared_ptr<JN_Application> app;
-	std::unique_ptr<JN_Player> player;
+	std::shared_ptr<JN_Player> player;
 	std::unique_ptr<JN_BubbleController> bubbles;
 	std::unique_ptr<JN_Background> background;
-
-	Text text;
+	std::unique_ptr<JN_ImageDisplay> playerHealthDisplay;
 
 	void Input();
 	void Update();

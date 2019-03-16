@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\Mark">
-      <UniqueIdentifier>{47f5782d-bedf-4b58-b872-75a7fa998860}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="JN_Triangle.h">
@@ -57,25 +54,16 @@
     <ClInclude Include="JN_Application.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Text.h">
-      <Filter>Header Files\Mark</Filter>
-    </ClInclude>
     <ClInclude Include="JN_Background.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FontTextureClass.h">
-      <Filter>Header Files\Mark</Filter>
-    </ClInclude>
-    <ClInclude Include="JN_FontTexture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureClass.h">
-      <Filter>Header Files\Mark</Filter>
     </ClInclude>
     <ClInclude Include="JN_BubbleController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="JN_Projectile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="JN_ImageDisplay.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -119,13 +107,13 @@
     <ClCompile Include="JN_Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="JN_FontTexture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="JN_BubbleController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="JN_Projectile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="JN_ImageDisplay.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

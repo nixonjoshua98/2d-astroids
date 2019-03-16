@@ -31,7 +31,6 @@ void JN_Texture::Load(std::string file)
 }
 
 
-
 void JN_Texture::SetBuffers()
 {
 	glGenTextures(1, &texture);

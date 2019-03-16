@@ -17,19 +17,19 @@ bool JN_Game::Init(std::shared_ptr<JN_Application> app)
 	this->app = app;
 
 	// Smarts
-	player = std::make_unique<JN_Player>();
+	player = std::make_shared<JN_Player>();
 	background = std::make_unique<JN_Background>();
 	bubbles = std::make_unique<JN_BubbleController>();
+	playerHealthDisplay = std::make_unique<JN_ImageDisplay>();
 
-	// Constructs
-	text = Text("..//..//assets//fonts//cour.ttf");
 
 	// Inits
+	std::string files[] = { "Zero.png", "One.png", "Two.png", "Three.png" };
+	playerHealthDisplay->Init(files, 4, glm::vec3(0.5f, 2.5f, 0.0f));
+
 	player->Init();
 	background->Init();
 	bubbles->Init(app->boundaries, viewMatrix, projectionMatrix);
-
-	text.setText("Text", 255, 255, 255);
 
 	return true;
 }
@@ -92,18 +92,26 @@ void JN_Game::Input()
 void JN_Game::Update()
 {
 	_++;
-	if (_ % 180 == 0)
+	if (_ == 120 && player->livesRemaining >= 0)
 	{
-		std::cout << bubbles->GetTotalBubbles() << std::endl;
+		_ = 0;
 		bubbles->AddBubble();
 	}
 
 
-	bubbles->Update();
-	player->Update(bubbles->GetBubbles());
+	if (player->livesRemaining >= 0)
+	{
+		int livesLost = bubbles->Update(player->transform.GetPosition());
+		player->Update();
 
+		player->livesRemaining -= livesLost;
+	}
+
+	playerHealthDisplay->SetUniforms(viewMatrix, projectionMatrix);
 	background->SetUniforms(viewMatrix, projectionMatrix);
 	player->SetUniforms(projectionMatrix, viewMatrix);
+
+	playerHealthDisplay->currentIndex = (int)fmaxf(player->livesRemaining, 0.0f);
 }
 
 void JN_Game::Render()
@@ -113,8 +121,7 @@ void JN_Game::Render()
 	background->Render();
 	bubbles->Render();
 	player->Render();
-
-	text.render();
+	playerHealthDisplay->Render();
 
 	SDL_GL_SwapWindow(app->GetWindow());
 }
