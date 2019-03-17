@@ -1,35 +1,43 @@
+
+#define LOG(x) std::cout << x << std::endl;
+
 #include "JN_Game.h"
 #include "JN_FrameLock.h"
+#include "JN_Logging.h"
 
 
 JN_Game::JN_Game()
 {
+	JN_AppendLog("Game created");
 }
 
 
 JN_Game::~JN_Game()
 {
+	JN_AppendLog("Game destroyed");
 }
+
 
 bool JN_Game::Init(std::shared_ptr<JN_Application> app)
 {
 	// Params
 	this->app = app;
 
+
 	// Smarts
-	player = std::make_shared<JN_Player>();
+	camera = std::make_unique<JN_Camera>();
+	player = std::make_unique<JN_Player>();
 	background = std::make_unique<JN_Background>();
 	bubbles = std::make_unique<JN_BubbleController>();
 	playerHealthDisplay = std::make_unique<JN_ImageDisplay>();
+	gameoverDisplay = std::make_unique<JN_ImageDisplay>();
 
 
 	// Inits
-	std::string files[] = { "Zero.png", "One.png", "Two.png", "Three.png" };
-
-	playerHealthDisplay->Init(files, 4, glm::vec3(0.5f, 2.5f, 0.0f));
-	player->Init();
-	background->Init();
-	bubbles->Init(app->boundaries, viewMatrix, projectionMatrix);
+	camera->Init(app->aspectRatio, app->boundaries);
+	playerHealthDisplay->Init(numbers, 4, glm::vec3(0.5f, 2.5f, 0.0f));
+	gameoverDisplay->Init(gameoverImage, 1, glm::vec3(2.0f, 1.5f, 0.0f));
+	bubbles->Init(app->boundaries, camera->viewMatrix, camera->projectionMatrix);
 
 	return true;
 }
@@ -39,9 +47,7 @@ void JN_Game::Run()
 	int f;
 	while (gameRunning)
 	{
-		auto lock = JN_FrameLock(60, f); // Lol
-
-		//std::cout << f << std::endl;
+		auto lock = JN_FrameLock(60, f);
 
 		Input();
 		Update();
@@ -78,11 +84,13 @@ void JN_Game::Input()
 				break;
 
 			default:
-				player->Input(e);
+				if (!player->IsDead())
+					player->Input(e);
 			}
 
 		default:
-			player->Input(e);
+			if (!player->IsDead())
+				player->Input(e);
 			break;
 		}
 	}
@@ -91,27 +99,23 @@ void JN_Game::Input()
 
 void JN_Game::Update()
 {
-	_++;
-	if (_ == 120 && player->livesRemaining >= 0)
+	if (!player->IsDead())
 	{
-		_ = 0;
-		bubbles->AddBubble();
+		if (spawnTimer++ == 120)
+		{
+			spawnTimer = 0;
+			bubbles->AddBubble();
+		}
+
+		bubbles->Update(player->GetPosition(), player->GetProjectilePosition(), player->GetLivesRemaining());
+		player->Update(camera->projectionMatrix, camera->viewMatrix);
 	}
 
+	gameoverDisplay->SetUniforms(camera->viewMatrix, camera->projectionMatrix);
+	playerHealthDisplay->SetUniforms(camera->viewMatrix, camera->projectionMatrix);
+	background->SetUniforms(camera->viewMatrix, camera->projectionMatrix);
 
-	if (player->livesRemaining >= 0)
-	{
-		int livesLost = bubbles->Update(player->transform.GetPosition(), player->projectile.transform.GetPosition());
-		player->Update();
-
-		player->livesRemaining -= livesLost;
-	}
-
-	playerHealthDisplay->SetUniforms(viewMatrix, projectionMatrix);
-	background->SetUniforms(viewMatrix, projectionMatrix);
-	player->SetUniforms(projectionMatrix, viewMatrix);
-
-	playerHealthDisplay->currentIndex = (int)fmaxf(player->livesRemaining, 0.0f);
+	playerHealthDisplay->SetCurrentIndex((int)fmaxf(player->GetLivesRemaining(), 0.0f));
 }
 
 void JN_Game::Render()
@@ -121,7 +125,11 @@ void JN_Game::Render()
 	background->Render();
 	player->Render();
 	bubbles->Render();
-	playerHealthDisplay->Render();
+
+	if (player->IsDead())
+		gameoverDisplay->Render();
+	else
+		playerHealthDisplay->Render();
 
 	SDL_GL_SwapWindow(app->GetWindow());
 }

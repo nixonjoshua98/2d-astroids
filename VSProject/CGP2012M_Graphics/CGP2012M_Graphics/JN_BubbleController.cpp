@@ -45,10 +45,8 @@ void JN_BubbleController::AddBubble(int i)
 }
 
 
-int JN_BubbleController::Update(glm::vec3 plr, glm::vec3 plrProjectile)
+void JN_BubbleController::Update(glm::vec3 plr, glm::vec3 plrProjectile, int& playerRemainingLifes)
 {
-	int collisions = 0;
-
 	for (int i = 0; i < bubbles.size();)
 	{
 		if (bubbles[i]->destroyTimer == 0)
@@ -63,7 +61,7 @@ int JN_BubbleController::Update(glm::vec3 plr, glm::vec3 plrProjectile)
 	{
 		if ((bubbles[i]->transform.DistanceBetween(plr) <= 0.25f) && !bubbles[i]->damaged)
 		{
-			collisions++;
+			playerRemainingLifes--;
 			bubbles[i]->damaged = true;
 		}
 
@@ -73,8 +71,6 @@ int JN_BubbleController::Update(glm::vec3 plr, glm::vec3 plrProjectile)
 		bubbles[i]->Update();
 		bubbles[i]->SetUniforms(projectionMatrix, viewMatrix);
 	}
-
-	return collisions;
 }
 
 

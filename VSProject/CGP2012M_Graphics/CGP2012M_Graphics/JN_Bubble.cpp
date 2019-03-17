@@ -26,11 +26,11 @@ void JN_Bubble::Init(float radius, float offsetX, float offsetY, JN_ScreenBounda
 
 	transform.SetDirection((float)cos(angle), (float)sin(angle), 0.0f);
 
-	transform.translate = glm::translate(transform.translate, glm::vec3(boundaries.cX, boundaries.cY, 0.0f));
-	transform.scale = glm::scale(transform.scale, glm::vec3(1, 1, 0));
+	transform.Translate(glm::vec3(boundaries.cX, boundaries.cY, 0.0f));
+	transform.Scale(glm::vec3(1, 1, 0));
 
 
-	// hacky solution to random bubble position
+	// Hacky solution to random bubble position
 	for (int i = 0; i < rand() % 4096; i++)
 		Update();
 }
@@ -55,19 +55,13 @@ void JN_Bubble::Update()
 	bool hitBottom = pos.y < (boundaries.b + (circle.radius) + 0.25f);
 
 
-	if (hitLeft)
-		transform.direction.x *= -1.0f;
+	if (hitLeft || hitRight)
+		transform.MultiplyDirection(-1, 1);
 
-	else if (hitRight)
-		transform.direction.x *= -1.0f;
+	else if (hitTop || hitBottom)
+		transform.MultiplyDirection(1, -1);
 
-	else if (hitTop)
-		transform.direction.y *= -1.0f;
-
-	else if (hitBottom)
-		transform.direction.y *= -1.0f;
-
-	transform.translate = glm::translate(transform.translate, transform.direction * 0.010f);
+	transform.Translate(transform.GetDirection() * 0.010f);
 }
 
 
@@ -82,6 +76,6 @@ void JN_Bubble::SetUniforms(glm::mat4 projectionMatrix, glm::mat4 viewMatrix)
 	auto viewLocation = glGetUniformLocation(shaderProgram, "uView");
 
 	glUniformMatrix4fv(projectionLocation, 1, GL_FALSE, glm::value_ptr(projectionMatrix));
-	glUniformMatrix4fv(modelLocation, 1, GL_FALSE, glm::value_ptr(transform.translate * transform.rotate * transform.scale));
+	glUniformMatrix4fv(modelLocation, 1, GL_FALSE, glm::value_ptr(transform.Multiply()));
 	glUniformMatrix4fv(viewLocation, 1, GL_FALSE, glm::value_ptr(viewMatrix));
 }

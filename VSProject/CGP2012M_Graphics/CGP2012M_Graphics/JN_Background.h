@@ -16,7 +16,6 @@ public:
 	JN_Background();
 	~JN_Background();
 
-	void Init();
 	void SetUniforms(glm::mat4 viewMatrix, glm::mat4 projectionMatrix);
 	void Render();
 

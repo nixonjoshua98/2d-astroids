@@ -20,15 +20,15 @@ void JN_Projectile::Init()
 		"..//..//Assets//Shaders//shader_vColour_Projection.frag"
 	);
 
-	transform.translate = glm::translate(transform.translate, glm::vec3(2.0f, 1.5f, 0.0f)); // Centre points
-	transform.scale = glm::scale(transform.scale, glm::vec3(0.1f, 0.1f, 0.0f));
+	transform.Translate(glm::vec3(2.0f, 1.5f, 0.0f));
+	transform.Scale(glm::vec3(0.1f, 0.1f, 0.0f));
 }
 
 
 
 void JN_Projectile::Update()
 {
-	transform.translate = glm::translate(transform.translate, glm::vec3((float)cos(transform.angle) * 0.05f, (float)sin(transform.angle) * 0.05f, 0.0f));
+	transform.MoveForward2D(0.05f);
 }
 
 
@@ -44,7 +44,7 @@ void JN_Projectile::SetUniforms(glm::mat4 projectionMatrix, glm::mat4 viewMatrix
 	auto uViewLoc = glGetUniformLocation(shaderProgram, "uView");
 
 	glUniformMatrix4fv(uProjectionLoc, 1, GL_FALSE, glm::value_ptr(projectionMatrix));
-	glUniformMatrix4fv(uModelLoc, 1, GL_FALSE, glm::value_ptr(transform.translate * transform.rotate * transform.scale));
+	glUniformMatrix4fv(uModelLoc, 1, GL_FALSE, glm::value_ptr(transform.Multiply()));
 	glUniformMatrix4fv(uViewLoc, 1, GL_FALSE, glm::value_ptr(viewMatrix));
 }
 

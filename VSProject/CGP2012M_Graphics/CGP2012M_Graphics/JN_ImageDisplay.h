@@ -18,13 +18,20 @@ public:
 	JN_ImageDisplay();
 	~JN_ImageDisplay();
 
-	int currentIndex = 0;
-
 	void Init(std::string textureFiles[], int argc, glm::vec3 pos);
 	void SetUniforms(glm::mat4 viewMatrix, glm::mat4 projectionMatrix);
 	void Render();
 
+	/* - - - - GETS - - - - */
+	int GetCurrentIndex() { return currentIndex; }
+
+
+	/* - - - - SETS - - - - */
+	void SetCurrentIndex(int v) { currentIndex = v; }
+
 private:
+	int currentIndex = 0;
+
 	JN_Transform transform;
 
 	std::vector<JN_Square> squares;

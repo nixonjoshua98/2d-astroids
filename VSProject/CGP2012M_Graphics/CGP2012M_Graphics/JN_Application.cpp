@@ -119,19 +119,6 @@ void JN_Application::WindowResized()
 }
 
 
-// Returns the private attribute <window>
-SDL_Window* JN_Application::GetWindow()
-{
-	return window;
-}
-
-
-float JN_Application::GetAspectRatio()
-{
-	return aspectRatio;
-}
-
-
 // NOTE: This only works if screen was full-screen
 void JN_Application::SetWindowPosition()
 {

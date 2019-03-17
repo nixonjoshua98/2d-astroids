@@ -1,18 +1,10 @@
 #include "JN_Background.h"
-
+#include "JN_Logging.h"
 
 JN_Background::JN_Background()
 {
-}
+	JN_AppendLog("Background created");
 
-
-JN_Background::~JN_Background()
-{
-}
-
-
-void JN_Background::Init()
-{
 	square.Init(
 		"..//..//Assets//Textures//Background.png",
 		"..//..//Assets//Shaders//shader_Projection_basicLight.vert",
@@ -25,9 +17,16 @@ void JN_Background::Init()
 		"..//..//Assets//Shaders//shader_Projection_basicLight.frag"
 	);
 
-	transform.scale = glm::scale(transform.scale, glm::vec3({ 20.0f, 15.0f, 1.0f }));
-	transform.translate = glm::translate(transform.translate, glm::vec3(2.0f, 1.5f, 0.0f));
+	transform.Scale(glm::vec3(20.0f, 15.0f, 1.0f));
+	transform.Translate(glm::vec3(2.0f, 1.5f, 0.0f));
 }
+
+
+
+JN_Background::~JN_Background()
+{
+}
+
 
 void JN_Background::Render()
 {
@@ -51,7 +50,7 @@ void JN_Background::SetUniforms(glm::mat4 viewMatrix, glm::mat4 projectionMatrix
 	glProgramUniform3fv(shaderProgram, uLightColourLoc, 1, glm::value_ptr(lightCol));
 	glProgramUniform1f(shaderProgram, uAmbientIntensityLoc, ambientIntensity);
 
-	glUniformMatrix4fv(uModelLoc, 1, GL_FALSE, glm::value_ptr(transform.translate * transform.scale));
+	glUniformMatrix4fv(uModelLoc, 1, GL_FALSE, glm::value_ptr(transform.MultiplyNoRotate()));
 	glUniformMatrix4fv(uViewLoc, 1, GL_FALSE, glm::value_ptr(viewMatrix));
 	glUniformMatrix4fv(uProjectionLoc, 1, GL_FALSE, glm::value_ptr(projectionMatrix));
 
@@ -68,7 +67,7 @@ void JN_Background::SetUniforms(glm::mat4 viewMatrix, glm::mat4 projectionMatrix
 	glProgramUniform3fv(shaderProgram, uLightColourLoc, 1, glm::value_ptr(lightCol));
 	glProgramUniform1f(shaderProgram, uAmbientIntensityLoc, ambientIntensity);
 
-	glUniformMatrix4fv(uModelLoc, 1, GL_FALSE, glm::value_ptr(transform.translate * transform.scale));
+	glUniformMatrix4fv(uModelLoc, 1, GL_FALSE, glm::value_ptr(transform.MultiplyNoRotate()));
 	glUniformMatrix4fv(uViewLoc, 1, GL_FALSE, glm::value_ptr(viewMatrix));
 	glUniformMatrix4fv(uProjectionLoc, 1, GL_FALSE, glm::value_ptr(projectionMatrix));
 }

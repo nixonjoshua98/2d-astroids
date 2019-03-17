@@ -18,10 +18,8 @@ public:
 
 	void Init(JN_ScreenBoundaries boundaries, glm::mat4 viewMatrix, glm::mat4 projectionMatrix);
 	void AddBubble(int i = 1);
-	int Update(glm::vec3 plr, glm::vec3 plrProjectile);
+	void Update(glm::vec3 plr, glm::vec3 plrProjectile, int& playerRemainingLifes);
 	void Render();
-
-	int GetTotalBubbles() { return (int)bubbles.size(); }
 
 	std::vector<JN_Bubble*> GetBubbles() { return bubbles; }
 

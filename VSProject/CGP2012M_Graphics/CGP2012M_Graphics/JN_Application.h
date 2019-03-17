@@ -19,6 +19,8 @@ public:
 	const int GL_MAJOR = 4;
 	const int GL_MINOR = 3;
 
+	float aspectRatio;
+
 	JN_ScreenBoundaries boundaries = JN_ScreenBoundaries({ 4.0f, 0.0f, 3.0f, 0.0f, 2.0f, 1.5f});
 
 	void SetWindowPosition();
@@ -28,16 +30,13 @@ public:
 
 
 	/* - - - -  GETS - - - - */
-	SDL_Window* GetWindow();		// Returns <window>
-	float GetAspectRatio();			// Returns <aspectRatio>
+	SDL_Window* GetWindow() { return window; }
 
 private:
 	SDL_Window* window = NULL;		// Window ptr
 	SDL_GLContext context = NULL;	// OpenGL context
 
 	bool isFullscreen = false;
-
-	float aspectRatio;
 
 	bool InitSDL();
 	bool InitGL();

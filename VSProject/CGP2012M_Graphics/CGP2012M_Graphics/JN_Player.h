@@ -16,25 +16,42 @@ public:
 	JN_Player();
 	~JN_Player();
 
-	int livesRemaining = 3;
-
-	void Init();
 	void Input(SDL_Event e);
-	void Update();
-	void SetUniforms(glm::mat4 projectionMatrix, glm::mat4 viewMatrix);
+	void Update(glm::mat4 projectionMatrix, glm::mat4 viewMatrix);
 	void Render();
 
-	JN_Transform transform;
-	JN_Projectile projectile;
+
+	/* - - - - GETS - - - - */
+	glm::vec3 GetPosition() { return transform.GetPosition(); }
+	glm::vec3 GetProjectilePosition() { return projectile.GetPosition(); }
+	bool IsDead() { return livesRemaining < 0; }
+	int& GetLivesRemaining() { return livesRemaining; }
 
 private:
-	bool movingForward = false;
-	bool projectileInPlay = false;
+	/* - - - - REFERENCES - - - - */
 
-	std::unique_ptr<JN_ImageDisplay> deathDisplay = std::make_unique<JN_ImageDisplay>();
 
+	/* - - - -  FLAGS - - - - */
+	bool isMovingForward = false;
+	bool isShooting = false;
+
+
+	/* - - - - STATS - - - - */
+	int livesRemaining = 3;
+
+
+	/* - - - - RENDERING - - - - */
+	JN_Projectile projectile;
+	JN_Transform transform;
 	JN_Triangle triangle;
 
+
+	/* - - - - OPENGL - - - - */
+	void SetUniforms(glm::mat4 projectionMatrix, glm::mat4 viewMatrix);
+
+
+	/* - - - - ACTIONS - - - - */
+	void Move();
 	void Fire();
 };
 

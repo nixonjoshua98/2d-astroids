@@ -42,9 +42,6 @@
     <ClInclude Include="JN_Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="JN_FrameLock.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="JN_Circle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -66,6 +63,12 @@
     <ClInclude Include="JN_ImageDisplay.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="JN_FrameLock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="JN_Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JN_Application.cpp">
@@ -78,9 +81,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="JN_Circle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="JN_FrameLock.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="JN_Game.cpp">
@@ -114,6 +114,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="JN_ImageDisplay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="JN_Transform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="JN_FrameLock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="JN_Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -16,9 +16,11 @@ public:
 	void SetDirection(JN_Transform trans);
 	void Render();
 
-	JN_Transform transform;
+	/* - - - - GETS - - - - */
+	glm::vec3 GetPosition() { return transform.GetPosition(); }
 
 private:
+	JN_Transform transform;
 	JN_Triangle triangle;
 };
 
