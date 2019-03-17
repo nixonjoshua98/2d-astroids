@@ -25,8 +25,8 @@ bool JN_Game::Init(std::shared_ptr<JN_Application> app)
 
 	// Inits
 	std::string files[] = { "Zero.png", "One.png", "Two.png", "Three.png" };
-	playerHealthDisplay->Init(files, 4, glm::vec3(0.5f, 2.5f, 0.0f));
 
+	playerHealthDisplay->Init(files, 4, glm::vec3(0.5f, 2.5f, 0.0f));
 	player->Init();
 	background->Init();
 	bubbles->Init(app->boundaries, viewMatrix, projectionMatrix);
@@ -101,7 +101,7 @@ void JN_Game::Update()
 
 	if (player->livesRemaining >= 0)
 	{
-		int livesLost = bubbles->Update(player->transform.GetPosition());
+		int livesLost = bubbles->Update(player->transform.GetPosition(), player->projectile.transform.GetPosition());
 		player->Update();
 
 		player->livesRemaining -= livesLost;
@@ -119,8 +119,8 @@ void JN_Game::Render()
 	app->ClearContext(1, 1, 1);
 
 	background->Render();
-	bubbles->Render();
 	player->Render();
+	bubbles->Render();
 	playerHealthDisplay->Render();
 
 	SDL_GL_SwapWindow(app->GetWindow());

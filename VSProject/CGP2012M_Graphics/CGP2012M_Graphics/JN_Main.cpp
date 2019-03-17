@@ -18,7 +18,7 @@ Pass:		Visible geometry for the player and bubbles							COMPLETE
 2.2:		Correct size background												COMPLETE
 2.1:		Geometry for world boundaries										COMPLETE
 1st:		Player fires a projectile											COMPLETE
-1st+:		Bubbles 'animate' when hit
+1st+:		Bubbles 'animate' when hit											COMPLETE
 
 Playable Game:
 Pass:		Player can move/rotate and bubbles can move							COMPLETE			
@@ -32,7 +32,7 @@ Pass:		Geometry isn't all the same colour									COMPLETE
 2.2:		Player is textured													COMPLETE
 2.1:		Bubbles and background are textured									COMPLETE
 1st:		Transparency														COMPLETE
-1st+:		Bubbles/player show Textured destruction
+1st+:		Bubbles/player show Textured destruction							COMPLETE
 
 Shaders:
 Pass:		Vertex and fragment shader are present								COMPLETE

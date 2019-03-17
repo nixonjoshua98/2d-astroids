@@ -25,6 +25,7 @@ public:
 	void Render();
 
 	JN_Transform transform;
+	JN_Projectile projectile;
 
 private:
 	bool movingForward = false;
@@ -33,7 +34,6 @@ private:
 	std::unique_ptr<JN_ImageDisplay> deathDisplay = std::make_unique<JN_ImageDisplay>();
 
 	JN_Triangle triangle;
-	JN_Projectile projectile;
 
 	void Fire();
 };

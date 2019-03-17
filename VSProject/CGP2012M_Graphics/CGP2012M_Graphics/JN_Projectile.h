@@ -16,9 +16,10 @@ public:
 	void SetDirection(JN_Transform trans);
 	void Render();
 
+	JN_Transform transform;
+
 private:
 	JN_Triangle triangle;
-	JN_Transform transform;
 };
 
 #endif // !JN_PROJECTILE_H

@@ -18,11 +18,14 @@ public:
 	~JN_Bubble();
 
 	void Init(float radius, float offsetX, float offsetY, JN_ScreenBoundaries boundaries);
-	void Render();
+	void Render(JN_Texture texture);
 	void Update();
 	void SetUniforms(glm::mat4 projectionMatrix, glm::mat4 viewMatrix);
 
 	JN_Transform transform;
+
+	float damaged = false;
+	int destroyTimer = 60;
 
 private:
 	glm::vec2 offset;
@@ -31,7 +34,6 @@ private:
 
 	JN_ScreenBoundaries boundaries;
 	JN_Circle circle;
-	//JN_Transform transform;
 };
 
 #endif // !JN_BUBBLE_H

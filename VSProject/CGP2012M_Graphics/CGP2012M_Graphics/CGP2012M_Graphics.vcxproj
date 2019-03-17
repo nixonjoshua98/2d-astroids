@@ -147,7 +147,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)..\External Libraries\glm;$(SolutionDir)..\External Libraries\SDL2-2.0.9\include;$(SolutionDir)..\External Libraries\glew-2.1.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <AdditionalDependencies>opengl32.lib;sdl2.lib;sdl2main.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)..\External Libraries\glew-2.1.0\lib\release\win32;$(SolutionDir)..\External Libraries\SDL2-2.0.9\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>

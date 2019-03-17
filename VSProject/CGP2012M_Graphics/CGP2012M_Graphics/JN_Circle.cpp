@@ -5,9 +5,6 @@
 
 
 
-JN_Texture JN_Circle::texture = JN_Texture();
-
-
 JN_Circle::JN_Circle()
 {
 }
@@ -23,7 +20,6 @@ JN_Circle::~JN_Circle()
 
 void JN_Circle::Init(float radius, float offsetX, float offsetY)
 {
-	std::string texFile = "..//..//Assets//Textures//Circle.png";
 	std::string vertexShaderFile = "..//..//Assets//Shaders//shader_vColour_Projection.vert";
 	std::string fragmentShaderFile = "..//..//Assets//Shaders//shader_vColour_Projection.frag";
 
@@ -70,7 +66,6 @@ void JN_Circle::Init(float radius, float offsetX, float offsetY)
 
 	SetBuffers();
 	
-	JN_Circle::texture.Load(texFile.c_str());
 }
 
 
@@ -100,12 +95,12 @@ void JN_Circle::SetBuffers()
 	glBindVertexArray(0);
 }
 
-void JN_Circle::Render()
+void JN_Circle::Render(JN_Texture texture)
 {
 	glUseProgram(shaderProgram);
 
 	glBindVertexArray(VAO);
-	glBindTexture(GL_TEXTURE_2D, JN_Circle::texture.GetTexture());
+	glBindTexture(GL_TEXTURE_2D, texture.GetTexture());
 
 	glPointSize(1.0f);
 

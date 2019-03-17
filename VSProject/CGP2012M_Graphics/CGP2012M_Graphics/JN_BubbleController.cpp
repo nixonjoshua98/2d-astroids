@@ -28,45 +28,50 @@ void JN_BubbleController::Init(JN_ScreenBoundaries boundaries, glm::mat4 viewMat
 	this->boundaries = boundaries;
 	this->viewMatrix = viewMatrix;
 	this->projectionMatrix = projectionMatrix;
+
+	textures["green"].Load("..//..//Assets//Textures//Circle.png");
+	textures["red"].Load("..//..//Assets//Textures//RedCircle.png");
 }
 
 
 void JN_BubbleController::AddBubble(int i)
 {
-	JN_Bubble* b;
-
-	float pairs[4][2] = { {-0.65, 0.5f}, {0.65f, 0.5f}, {0.65f, -0.5f}, {-0.65f, -0.5f} };
-	
-	int index = rand() % 4;
-
 	for (int j = 0; j < i; j++)
 	{
-		b = new JN_Bubble();
-		//b->Init(0.2f, pairs[index][0], pairs[index][1], boundaries);
+		JN_Bubble* b = new JN_Bubble();
 		b->Init(0.2f, 0.0f, 0.0f, boundaries);
 		bubbles.push_back(b);
 	}
 }
 
 
-int JN_BubbleController::Update(glm::vec3 plr)
+int JN_BubbleController::Update(glm::vec3 plr, glm::vec3 plrProjectile)
 {
 	int collisions = 0;
 
-	for (int i = 0; i < bubbles.size(); )
+	for (int i = 0; i < bubbles.size();)
 	{
-		if (bubbles[i]->transform.DistanceBetween(plr) <= 0.2f) // 0.2f = Radius
+		if (bubbles[i]->destroyTimer == 0)
 		{
-			collisions++;
 			bubbles.erase(bubbles.begin() + i);
 			continue;
 		}
+		i++;
+	}
 
-		if (bubbles[i])
+	for (int i = 0; i < bubbles.size(); i++)
+	{
+		if ((bubbles[i]->transform.DistanceBetween(plr) <= 0.25f) && !bubbles[i]->damaged)
 		{
-			bubbles[i]->Update();
-			bubbles[i++]->SetUniforms(projectionMatrix, viewMatrix);
+			collisions++;
+			bubbles[i]->damaged = true;
 		}
+
+		else if (bubbles[i]->transform.DistanceBetween(plrProjectile) <= 0.25f)
+			bubbles[i]->damaged = true;
+
+		bubbles[i]->Update();
+		bubbles[i]->SetUniforms(projectionMatrix, viewMatrix);
 	}
 
 	return collisions;
@@ -79,7 +84,8 @@ void JN_BubbleController::Render()
 	{
 		if (bubbles[i])
 		{
-			bubbles[i++]->Render();
+			bubbles[i]->Render(bubbles[i]->damaged ? textures["red"] : textures["green"]);
+			i++;
 		}
 	}
 }

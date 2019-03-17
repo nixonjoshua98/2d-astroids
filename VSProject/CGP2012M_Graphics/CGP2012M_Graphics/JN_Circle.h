@@ -15,13 +15,11 @@ public:
 	float radius;
 
 	void Init(float radius, float offsetX, float offsetY);
-	void Render();
+	void Render(JN_Texture texture);
 
 	GLuint GetShaderProgram() { return shaderProgram; }
 
 private:
-	static JN_Texture texture;
-
 	GLuint shaderProgram;
 	GLuint VBO, VAO, EBO;
 	GLfloat vertices[240];

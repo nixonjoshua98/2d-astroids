@@ -36,14 +36,17 @@ void JN_Bubble::Init(float radius, float offsetX, float offsetY, JN_ScreenBounda
 }
 
 
-void JN_Bubble::Render()
+void JN_Bubble::Render(JN_Texture texture)
 {
-	circle.Render();
+	circle.Render(texture);
 }
 
 
 void JN_Bubble::Update()
 {
+	if (damaged)
+		destroyTimer--;
+
 	auto pos = transform.GetPosition();
 
 	bool hitRight = pos.x > (5.1f - 0.35f  - this->offset.x);

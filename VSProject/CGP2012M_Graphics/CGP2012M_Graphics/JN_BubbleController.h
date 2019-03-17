@@ -3,9 +3,11 @@
 
 #include <vector>
 #include <memory>
+#include <map>
+#include <string>
 
 #include "JN_Bubble.h"
-#include "JN_Player.h"
+#include "JN_Texture.h"
 #include "JN_ScreenBoundaries.h"
 
 class JN_BubbleController
@@ -16,7 +18,7 @@ public:
 
 	void Init(JN_ScreenBoundaries boundaries, glm::mat4 viewMatrix, glm::mat4 projectionMatrix);
 	void AddBubble(int i = 1);
-	int Update(glm::vec3 plr);
+	int Update(glm::vec3 plr, glm::vec3 plrProjectile);
 	void Render();
 
 	int GetTotalBubbles() { return (int)bubbles.size(); }
@@ -27,6 +29,8 @@ private:
 	std::vector<JN_Bubble*> bubbles;
 
 	JN_ScreenBoundaries boundaries;
+
+	std::map<std::string, JN_Texture> textures;
 
 	glm::mat4 viewMatrix;
 	glm::mat4 projectionMatrix;
